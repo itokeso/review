@@ -1,0 +1,15 @@
+.wrapper
+  .header.d-flex.align-items-center.justify-content-around.shadow-sm
+    .header__left.d-flex
+      .header__left__title.d-flex.ml-3
+        アニレビュ
+      .header__left__text.ml-5.mt-3
+        理解が深まるレビューサイト！
+        %br/
+        自分に合ったアニメを探そう！
+    .header__right.mr-5
+      = search_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"header__right__search"
+      .header__right__btn.btn.btn-dark.rounded-pill.ml-2.mb-1
+        検索
+      .header__right__text.mt-2
+        ＃ワンピース　　＃NARUTO　　＃BLEACH　　＃とらドラ
