@@ -1,24 +1,76 @@
-%h2 新規会員登録
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, autofocus: true, autocomplete: "name"
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length}文字以上入力して下さい）
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "登録する"
+.wrapper
+  .header.d-flex.align-items-center.justify-content-around.shadow-sm
+    .header__left.d-flex
+      .header__left__title.d-flex.ml-3
+        アニレビュ
+      .header__left__text.ml-5.mt-3
+        理解が深まるレビューサイト！
+        %br/
+        自分に合ったアニメを探そう！
+    .header__right.mr-5
+      = search_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"header__right__search"
+      .header__right__btn.btn.btn-dark.rounded-pill.ml-2.mb-1
+        検索
+      .header__right__text.mt-2
+        ＃ワンピース　　＃NARUTO　　＃BLEACH　　＃とらドラ
+    
+  .content.border
+    .content__title.align-items-center.mb-3
+      新規会員登録
+    .content__text.border
+      アニレビュは、２８０文字以上の感想と評価でアニメを探せるレビューサイトです。
+      %br/
+      会員登録をすれば、アニメを見終えた感想の投稿ができます。
+      %br/
+      あなたもアニレビュで一緒にレビュー生活を始めましょう！
 
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field.my-5.border
+        .field__name.mx-2.my-2
+          = f.label :name, class:"content__name"
+          .field__name__text.ml-2
+            *12文字以内
+          .field__required
+            必須
+          %br/
+          .field__name__field
+            = f.text_field :name, autofocus: true, class:"content__name__field required", autocomplete: "name"
+          %br/
+        .field__email.mx-2.my-2  
+          = f.label :email, class:"content__email"
+          .field__email__text.ml-2
+            *半角英数字
+          .field__email__required
+            必須
+          %br/
+          = f.email_field :email,class:"content__email__field required",  autofocus: true, autocomplete: "email"
+        .field__pass.mx-2.my-2
+          = f.label :password , class:"content__password"
+          .field__pass__text.ml-2
+            *8文字以上の半角英数字
+          .field__pass__required
+            必須
+          %br/
+          = f.password_field :password, class:"content__password__field required", autocomplete: "new-password"
+        .field__pass2.mx-2.my-2
+          = f.label :password_confirmation, class:"content__password2"
+          .field__pass2__text.ml-2
+            ※パスワード再入力
+          .field__pass2__required
+            必須
+          %br/
+          = f.password_field :password_confirmation, class:"content__password__comfirm required", autocomplete: "new-password"
+        .actions
+          = f.submit "登録する" , class:"submit"
+
+  .footer
+    .footer__logo.mr-3.d-flex.pt-3.pl-3.justify-content-center
+      アニレビュ
+      .footer__logo__text.ml-3
+        アニレビュは、作品についての理解を深めることができるレビューサイトです。
+        %br/
+        自分が好きな作品について深く考察して感想を投稿したり、他の人の解釈を読んで疑問を
+        %br/
+        解決する音でより一層作品を楽しむことができます。さぁ、あなたも一緒にレビュー生活を始めてみませんか？
+    %i.fa.fa-chevron-circle-up
