@@ -1,17 +1,23 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.login
+  .login__title.py-3
+    ログイン
+  .login__form.my-4
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email, class:"email__label"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class:"email__field"
+        .error_session_email
+      .field
+        = f.label :password, class:"pass__label"
+        %br/
+        = f.password_field :password, autocomplete: "current-password", class:"pass__field"
+        .error_session_pass
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+        = f.submit "ログイン", class:"submit"
+    -# = render "devise/shared/links"

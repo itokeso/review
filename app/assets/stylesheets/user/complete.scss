@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+.complete {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  text-align: center;
+  &__text {
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;      
+    margin-bottom: 30px;
+  }
+
+  &__message {
+    margin-top: 30px;
+    font-size: 22px;
+    height: 100%;
+    width: 343px;
+    line-height: 50px;
+    padding-bottom: 20px;
+    margin: 0px auto;
+    text-align: center;
+  }
+  .btn {
+    width: 200px;
+    height: 55px;
+    line-height: 38px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Noto Sans JP', sans-serif;      
+    border: 1px solid #383838;
+    border-bottom: solid 4px #627295;
+    border-radius: 5px;
+    background-color: #383838;
+    color: #fff;
+    margin-top: 60px;
+  }
+}
+.btn:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+}
