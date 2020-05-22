@@ -53,6 +53,7 @@
     border-radius: 10px;
     }
 
+// 新規会員登録
   .field {
     margin: 0 auto;
     width: 800px;
@@ -244,6 +245,7 @@
     }
   }
 
+// エラー
 #error_explanation {
   margin: 10px 0;
   padding: 10px 10px;
@@ -273,6 +275,7 @@
   display: inline;
 }
 
+// フォームバリデーション
 .error_name{
   font-size: 15px;
   font-weight: normal;
