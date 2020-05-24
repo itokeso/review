@@ -1,0 +1,97 @@
+// ナビゲーションバー
+.navbar {
+  li {
+  height: 25px;
+  width: 90px;
+  font-size: 15px;
+  list-style: none;
+  color: white;
+  margin-left: 15px;
+  text-align: center;
+}
+  .nav-item__battle {
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(171, 207, 171);
+    }
+  }
+  .nav-item__love {
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color: #F23838;
+    }
+  }
+  .nav-item__school {
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color:#6D91A9;
+    }
+  }
+  .nav-item__sf {
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color: #FF7D45;
+    }
+  }
+  .nav-item__robot {
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color: #FAD008;
+  }
+}
+  .nav-item__fantasy {
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover {
+      background-color: #6D91A9;
+    }
+  }
+  .navbar__right {
+    margin: 0 0 0 auto;
+    margin-right: 30px ;
+    .nav-link__review {
+      transition: 0.5s;
+      cursor: pointer;
+      margin-right: 30px;
+      text-decoration: none;
+      color: white;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    .nav-link__logout {
+      transition: 0.5s;
+      cursor: pointer;
+      margin-right: 30px;
+      text-decoration: none;
+      color: white;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    .nav-link__login {
+      transition: 0.5s;
+      cursor: pointer;
+      margin-right: 30px;
+      text-decoration: none;
+      color: white;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    .nav-link__signup {
+      transition: 0.5s;
+      text-decoration: none;
+      cursor: pointer;
+      color: white;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}

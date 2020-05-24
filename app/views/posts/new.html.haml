@@ -1,0 +1,35 @@
+.review
+  .review-wrapper
+    .review__post.mb-3
+      感想を投稿する
+    .review__text.mb-3
+      アニレビュは、作品についての理解を深めることをコンセプトとしたレビューサイトです。
+      %br/
+      作品についての新たな発見や見解、独自の解釈にある長文レビューを大歓迎しています。
+      %br/
+      そのため、200文字未満の感想は作品ページに表示されませんのでご了承ください。
+      %br/
+      感想を書くときは、作品への愛と作者への敬意を忘れず、必ず自分で観てから感想を書いて下さい。
+
+    .review__form
+      .review__form__anime
+        %img.review__form__anime__left
+          .review__form__anime__right
+            .review__form__anime__right__title
+              タイトル
+            .review__form__anime__right__genre
+              ジャンル
+      .review__form__evalution     
+        総合評価
+      .form-group.review__form__title
+        = text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__form__title"
+        .review__form__title__field
+          = text_area :review , autofocus: true, placeholder: '感想を入力して下さい', class:"review__form__field", rows:"13" 
+        .review__form__title__count.mb-4
+          0文字（200文字未満の感想は作品ページに表示されませんのでご了承ください）
+        .review__form__title__submit
+          = submit_tag "投稿する", class:"post-submit"
+      
+      
+      
+
