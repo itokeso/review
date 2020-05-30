@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.text   :review, null: false
       t.references :user, foreign_key: true, null: false
       # t.references :anime, foreign_key: true, null: false
-      t.float      :rate, null: false
+      # t.float      :rate, null: false
       t.timestamps
     end
   end

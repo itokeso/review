@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_111916) do
     t.string "title", default: "", null: false
     t.text "review", null: false
     t.bigint "user_id", null: false
-    t.float "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
