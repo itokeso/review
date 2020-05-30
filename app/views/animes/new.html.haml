@@ -1,0 +1,28 @@
+.anime
+  .anime__text.py-3
+    新規アニメの登録
+  .anime__form.my-4
+    = form_for @anime do |f|
+      .anime__form__field
+        = f.label :作品画像, class:"image__label"
+        %span.image__label__tag
+          必須
+        %br/
+        = f.file_field :image, class:"image__field"
+
+      .anime__form__field
+        = f.label :アニメタイトル, class:"title__label"
+        %span.title__label__tag
+          必須
+        %br/
+        = f.text_field :title, autofocus: true, class:"title__field", placeholder: "アニメタイトルを入力して下さい"
+  
+      .anime__form__field
+        = f.label :ジャンル, class:"genre__label"
+        %span.genre__label__tag
+          必須
+        %br/
+        = f.select :genre, ["バトル","恋愛","学園","SF","ロボット","ファンタジー"], class:"genre__field", :prompt => "選択して下さい"
+        %br/
+      .anime__form__submit
+        = f.submit "新規アニメ登録", class:"anime__submit"

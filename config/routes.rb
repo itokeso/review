@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   end
 
   root "posts#index"
+  resources :animes, only: [:new, :create] 
+  resources :posts, only: [:new, :create, :index] 
+  
+
 end

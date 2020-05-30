@@ -1,76 +1,100 @@
-.navbar {
-    li {
-    height: 25px;
-    width: 90px;
-    font-size: 15px;
-    list-style: none;
-    color: white;
-    margin-left: 15px;
-    text-align: center;
-  }
-    .nav-item__battle {
-      transition: 0.5s;
-      cursor: pointer;
-      &:hover {
-        background-color: rgb(171, 207, 171);
-      }
-    }
-    .nav-item__love {
-      transition: 0.5s;
-      cursor: pointer;
-      &:hover {
-        background-color: #F23838;
-      }
-    }
-    .nav-item__school {
-      transition: 0.5s;
-      cursor: pointer;
-      &:hover {
-        background-color:#6D91A9;
-      }
-    }
-    .nav-item__sf {
-      transition: 0.5s;
-      cursor: pointer;
-      &:hover {
-        background-color: #FF7D45;
-      }
-    }
-    .nav-item__robot {
-      transition: 0.5s;
-      cursor: pointer;
-      &:hover {
-        background-color: #FAD008;
+
+
+// スライド
+.slick {
+  height: 150px;
+  width: 100%;
+  background-color: gray;
+}
+
+
+// レビュー
+.main {
+  display: flex;
+  justify-content: space-around;
+.main__left {
+  border: 1px solid gray;
+  width: 800px;
+.image1 {
+  float: left;
+  height: 140px;
+  width: 100px;
+  background-color: gray;
+}
+.main-review__text {
+  font-size: 15px;
+  opacity: 0.8;
+}
+}
+
+.main__right {
+  &__box {
+    border: 1px solid gray;
+    &__list__rank {
+      display: flex;
     }
   }
-    .nav-item__fantasy {
-      transition: 0.5s;
-      cursor: pointer;
-      &:hover {
-        background-color: #6D91A9;
-      }
+}
+&__right__genre {
+  width: 300px;
+  height: 300px;
+  border: 1px solid gray;
+  &__text {
+    opacity: 0.8;
+  }
+  &__category {
+    .battle {
+      border: 1px solid gray;
+      padding: 5px 25px;
+      text-decoration: none;
+      color: rgb(171, 207, 171);
+      margin: 20px;
+      display: inline-block;
     }
-    .navbar__right {
-      margin: 0 0 0 auto;
-      margin-right: 30px ;
-      .nav-link__login {
-        transition: 0.5s;
-        cursor: pointer;
-        margin-right: 30px;
-        text-decoration: none;
-        color: white;
-        &:hover {
-          opacity: 0.6;
-        }
-      }
-      .nav-link__signup {
-        transition: 0.5s;
-        text-decoration: none;
-        cursor: pointer;
-        color: white;
-        &:hover {
-          opacity: 0.6;
-        }
-      }
+    .love {
+      border: 1px solid gray;
+      padding: 5px 30px ;
+      text-decoration: none;
+      color: #F23838;
+      margin: 20px;
+      display: inline-block;
+
     }
+    .school {
+      border: 1px solid gray;
+      padding: 5px 33px;
+      text-decoration: none;
+      color: #6D91A9;
+      margin: 20px;
+      display: inline-block;
+
+    }
+    .sf {
+      border: 1px solid gray;
+      padding: 5px 37px;
+      text-decoration: none;
+      color: #FF7D45;
+      margin: 20px;
+      display: inline-block;
+
+    }
+    .robot {
+      border: 1px solid gray;
+      padding: 5px 17px;
+      text-decoration: none;
+      color: #FAD008;
+      margin: 20px;
+      display: inline-block;
+      
+    }
+    .fantasy {
+      border: 1px solid gray;
+      padding: 5px;
+      text-decoration: none;
+      color: #6D91A9;
+      margin: 20px;
+      display: inline-block;
+    }
+  }
+}
 }

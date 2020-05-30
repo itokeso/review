@@ -1,0 +1,113 @@
+.anime {
+  height: 100vh;
+  width: 100%;
+  // background-color: #f5f0e3;
+
+  &__text {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__form {
+    border: 1px solid gray;
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+
+    .image__label {
+      font-size: 18px;
+      margin-top: 30px;
+      text-align: center;
+      display: block;
+    }
+    .image__label__tag {
+      position: absolute;
+      top: 35px;
+      right: 310px;
+      color: #fff;
+      border-radius: 2rem;
+      background-color: #f4ac6c;
+      line-height: 16px;
+      padding: 0 5px;
+    }
+
+    .image__field {
+      margin:0 auto;
+      display: block;
+      margin-top: -20px;
+
+    }
+    .title__label {
+      margin-top:50px;
+      text-align: center;
+      display: block;
+      font-size: 18px;
+    }
+    .title__label__tag {
+      position: absolute;
+      top: 152px;
+      right: 290px;
+      color: #fff;
+      border-radius: 2rem;
+      background-color: #f4ac6c;
+      line-height: 16px;
+      padding: 0 5px;
+    }
+    .title__field {
+      margin: 0 auto;
+      margin-top: -20px;
+      display: block;
+      width: 500px;
+      outline: none;
+      border-radius: 10px;
+    }
+    .genre__label {
+      margin-top:50px;
+      text-align: center;
+      display: block;
+      font-size: 18px;
+    }
+    .genre__label__tag {
+      position: absolute;
+      top: 272px;
+      right: 315px;
+      color: #fff;
+      border-radius: 2rem;
+      background-color: #f4ac6c;
+      line-height: 16px;
+      padding: 0 5px;
+    }
+    #anime_genre {
+      margin: 0 auto;
+      margin-top: -20px;
+      display: block;
+      width: 500px;
+      height: 35px;
+      outline: none;
+    }
+    .anime__form__submit {
+      text-align: center;
+      margin: 30px 0;
+      .anime__submit {
+        width: 200px;
+        line-height: 38px;
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: 'Noto Sans JP', sans-serif;
+        border: 1px solid #383838;
+        border-bottom: solid 4px #627295;
+        border-radius: 5px;
+        background-color: #383838;
+        color: #fff;
+        margin: 30px 0;
+        margin: 0 auto;      
+      } 
+      .anime__submit:active {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+        border-bottom: none;
+      }  
+
+    }
+  }
+}
