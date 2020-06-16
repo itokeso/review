@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   root "posts#index"
   resources :animes, only: [:new, :create] 
-  resources :posts, only: [:new, :create, :index] 
-  
-
+    resources :posts, only: [:new, :create, :index] do
+    resources :posts, only: [:search] 
+      collection do
+      get 'search'
+    end
+  end
 end

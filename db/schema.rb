@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 2020_05_26_111916) do
     t.string "title", default: "", null: false
     t.text "review", null: false
     t.bigint "user_id", null: false
+    t.bigint "anime_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_posts_on_anime_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -42,5 +44,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_111916) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "animes"
   add_foreign_key "posts", "users"
 end

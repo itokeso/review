@@ -6,3 +6,15 @@ $(function(){
   });
 });
 
+
+// モーダルウインドウ
+$(function(){
+  $('.review__select__btn').on('click',function(){
+    $('.review__select__modal').fadeIn();
+    return false;
+  });
+  $('.far').on('click', function(){
+    $('.review__select__modal').fadeOut();
+    return false;
+  });
+});

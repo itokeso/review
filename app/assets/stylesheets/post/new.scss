@@ -13,7 +13,6 @@
       opacity: 0.8;
     }
     .review__text {
-      opacity: 0.6;
       font-size: 15px;
       }
 
@@ -26,7 +25,97 @@
         background-color: #f5f0e3;
         height: 60px;
         transition: all 0.3s;
+        .review__select__modal {
+          display:  none;
+          height: 100vh;
+          position: fixed;
+          top: 0px;
+          left: 0px;
+          width: 100vw;
+          background: rgba(0,0,0,0.8);
+          .review__select__modal__content {
+            background: #fff;
+            left: 50%;
+            padding: 10px;
+            position: absolute;
+            top:  50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: calc(100vh - 20px);
+            overflow: scroll;
+            .review__select__modal__close {
+              font-size: 18px;
+              opacity: 0.8;
+              .far.fa-window-close {
+                position: absolute;
+                font-size: 30px;
+                right: 10px;
+                top: 5px;
+                opacity: 0.6;
+                cursor: pointer;
+                &:hover {
+                  opacity: 0.3;
+                }
+              }
+            }
+            .review__select__modal__content__search {
+              background-color: #f5f0e3; 
+              padding: 15px; 
+              margin-bottom: 30px;                    
+                input[type= "search"] {
+                  width: 450px;
+                  border-radius: 20px;
+                  outline: none;
+              }           
+            }  
+          
+            .review__select__modal__content__title {
+              height: 150px;
+              width: 558px;
+              background-color: #f5f0e3; 
+              border: 1px solid rgba(0,0,0,0.2);
+              position: relative;
+              &:hover {
+                border: 1px solid rgba(0,0,0,0.6);
+              }
+              }
+              .review__select__modal__content__title__left {
+                width: 100px;
+                height: 130px;
+                background-color: gray;
+                border: 1px solid rgba(0,0,0,0.8);
+                float: left;
+                margin: 10px;        
+              }
+              .anime__image {
+                color: white;
+                width: 100px;
+                height: 130px;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            
+              }
+              .review__select__modal__content__title__right {
+                position: relative;
+                .review__select__modal__content__title__right__title {
+                  position: absolute;
+                  top: 20px;
+                  left: 130px;
+                  font-weight: bold;
+                }
+                .review__select__modal__content__title__right__genre {
+                  position: absolute;
+                  top: 70px;
+                  left: 130px;
+                  font-size: 15px;     
+                } 
+            }                
+          
+        }        
       }
+    }
+    
       .review__form {
         display: none;
       }

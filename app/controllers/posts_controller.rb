@@ -6,10 +6,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    
+    @anime = Anime.all
+
   end
 
   def create
+    @amime = Anime.find_by(params[:id])
     @post = Post.new(post_params)
     if @post.save
       redirect_to root_path
@@ -18,7 +20,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @animes = Anime.where('title LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  private
   def post_params
-    params.require(:post).permit(:title, :review, :rate).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :review, :rate, :anime_id).merge(user_id: current_user.id)
   end
 end

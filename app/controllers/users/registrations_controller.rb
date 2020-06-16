@@ -4,19 +4,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :create, only: [:complete]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  def new
-    @user = User.new
-  end
 
-  def create
-    @user = User.new(sign_up_params)
-    if @user.save 
-      render :complete
-    else
-      render :new
-    end
+  def complete
+    render :action => 'complete'
   end
-
 
   # GET /resource/sign_up
   # def new
@@ -73,10 +64,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  protected
-
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
 
 end
