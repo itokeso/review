@@ -33,21 +33,13 @@
                           = anime.title 
                         .review__select__modal__content__title__right__genre
                           = anime.genre
-                          
-      -#  隠しフォーム               
-      -# .review__form
-      -#   .review__form__anime
-      -#     %img.review__form__anime__left
-      -#       .review__form__anime__right
-      -#         .review__form__anime__right__title
-      -#           タイトル
-      -#         .review__form__anime__right__genre
-      -#           ジャンル
-
-    = form_for [@post] do |f|
-      = f.hidden_field :anime_id, value: @anime.ids
+        
+    = form_for [@post], url: anime_posts_path do |f|
+      -# form_forのなかにanimeidを入れる（jsで）
       .review__form__evalution     
-        総合評価
+        %span.review__form__evalution__star#star
+          = f.label :rate, '総合評価', class: "review__form__evalution__star__label"
+          = f.hidden_field :rate, id: :review_star
       .form-group.review__form__title
         = f.text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__form__title"
         .review__form__title__field
@@ -56,4 +48,12 @@
           0文字（200文字未満の感想は作品ページに表示されませんのでご了承ください）
         .review__form__title__submit
           = f.submit "投稿する", class:"post-submit"
-
+:javascript
+  $('#star').raty({
+    size     : 36,
+    starOff:  '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    scoreName: 'post[rate]',
+    half: true,
+  });　　

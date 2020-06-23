@@ -1,10 +1,75 @@
-
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+}
 
 // スライド
 .slick {
-  height: 150px;
+  height: 200px;
   width: 100%;
-  background-color: gray;
+  background-color: beige;
+  &__text {
+    font-size: 16px;
+  }
+  &__image {
+    position: relative;
+    & img {
+      width: 100px;
+      height: 140px;
+    }
+  }
+  &__image__title {
+    font-size: 12px;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__image__tag {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    display: inline-block;
+    height: 20px;
+    width: 85px;
+    line-height: 20px;
+    text-align: center;
+    padding: 0 1em;
+    background-color: #df5291;
+    border-radius: 0 3px 3px 0;
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: -15px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-color: transparent #df5291 transparent transparent;
+    border-style: solid;
+    border-width: 5px 15px 15px 0;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    display: block;
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    background-color: #fff;
+    border-radius: 100%;
+    }
+  }
 }
 
 
@@ -12,33 +77,148 @@
 .main {
   display: flex;
   justify-content: space-around;
+  margin: 0 70px;
 .main__left {
   border: 1px solid gray;
   width: 800px;
-.image1 {
-  float: left;
-  height: 140px;
-  width: 100px;
-  background-color: gray;
+  margin: 0 auto;
+  &__text {
+    margin: 15px 0;
+  }
+  &__form {
+    border-top: 1px solid rgba(0,0,0,.2);
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    height: 230px;
+  }
+
+  .main-review {
+    position: relative;
+  }
+  .anime__image {
+    float: left;
+    height: 140px;
+    width: 100px;
+    margin: 20px;
+    background-color: gray;
+    &:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+    }
+  }
+  .main-review__anime {
+    position: absolute;
+    top: 165px;
+    left: 18px;
+    font-size: 13px;
+  }
+
+  .show {
+    text-decoration: none;
+  }
+&__block {
+  width: 610px;
+  height: 200px;
+  background-color: beige;
+  float: right;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+  border-radius: 5px;
+  position: relative;
+  &:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+  .main-review__title {
+    color: black;
+  }
+  .main-review__text {
+    font-size: 14px;
+    opacity: 0.6;    
+    color: black;
+    width: 560px;
+    height: 102px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    &__link {
+      text-decoration: none;
+      font-size: 13px;
+    }
+  }
+  .main-review__rate {
+    font-size: 15px;
+    color: black;
+    margin-left: 20px;
+    & img {
+      margin-bottom: 5px;
+    }
+
+  }
+  &__name {
+    bottom: 0;
+    left: 10px;
+    position: absolute;
+    font-size: 12px;
+    color: black;
+    &__time {
+      margin-left: 10px;
+    }
+    &__length {
+      margin-left: 40px;
+    }
+  }
 }
-.main-review__text {
-  font-size: 15px;
-  opacity: 0.8;
-}
+
 }
 
 .main__right {
   &__box {
-    border: 1px solid gray;
-    &__list__rank {
-      display: flex;
+    border: 1px solid rgba(0,0,0,.2);
+    &__list {
+      margin-top: 10px;
+      background-color: beige;
+      &:hover {
+        opacity: 0.8;
+        transition: 0.3s;
+      }
+      &__rank {
+        display: flex;
+        position: relative;
+        &__best {
+          position: absolute;
+          top: 45px;
+          left: -25px;
+        }
+        &__image img {
+          height: 80px;
+          width: 60px;
+          margin-left: 35px;
+        }
+        &__title {
+          position: absolute;
+          top: 17px;
+          left: 118px;
+          font-size: 12px;
+        }
+      }
+    } 
+  }
+  .right__review__rate {
+    font-size: 12px;
+    position: absolute;
+    top: 34px;
+    left: 120px;
+    & img {
+      width: 10px;
+      margin-bottom: 5px;
     }
   }
 }
 &__right__genre {
   width: 300px;
   height: 300px;
-  border: 1px solid gray;
+  border: 1px solid rgba(0,0,0,.2);
   &__text {
     opacity: 0.8;
   }
@@ -98,3 +278,7 @@
   }
 }
 }
+
+.pagination {
+  font-size: 20px;
+}  

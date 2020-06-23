@@ -25,6 +25,7 @@
         background-color: #f5f0e3;
         height: 60px;
         transition: all 0.3s;
+        margin-top: 20px;
         .review__select__modal {
           display:  none;
           height: 100vh;
@@ -143,7 +144,11 @@
       } 
       .review__form__evalution {
         font-size: 15px;
-        margin: 10px 0;
+        margin: 10px 10px 10px 0;
+        &__star__label {
+          margin-right: 10px;
+          margin-top: 5px;
+        }
       }
       .review__form__title {
         input[type="text"] {

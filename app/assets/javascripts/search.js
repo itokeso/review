@@ -38,6 +38,12 @@ $(function(){
           $('.review__text').empty().append(html)
     }
 
+    // アニメIDをデータベースに保存する
+    function saveAnime(animeId) {
+      let html = `<input value="${animeId}" name="post[anime_id]" type="hidden" id="${animeId}" />`;
+      $(`.review__form__evalution`).append(html);
+    }
+
     function appendForm(title, id, genre, image) {
       let html = `<div class="review__form" style="display: block; id= ${id}">
                     <div class="review__form__anime">
@@ -90,6 +96,8 @@ $(function(){
     $('.review__select__modal').fadeOut();
     $('.review__select').hide()
       addForm(title, id, genre, image)
+    　saveAnime(id)
+
   });
 
 
@@ -104,5 +112,7 @@ $(function(){
     $('.review__select__modal').fadeOut()
     $('.review__select').hide()
     appendForm(animeTitle, animeId, animeGenre, animeImage)
+    saveAnime(animeId)
+
   }); 
 });
