@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
-  get 'favorites/create'
-  get 'favorites/destroy'
-  devise_for :users, :controllers => {
-    :registrations => 'users/registrations'
-  }
-
-  devise_scope :user do
-    post 'users/sign_up/complete' => 'users/registrations#complete'
-  end
-
+  devise_for :users
   root "posts#index"
   
   resources :animes, only: [:new, :create] do 

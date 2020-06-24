@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @anime = Anime.find(params[:anime_id])
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(3).pluck(:anime_id))
-    @favorite = Favorite.new
+    # @favorite = Favorite.new
   end
 
   def search

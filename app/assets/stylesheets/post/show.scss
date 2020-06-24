@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  text-decoration: none !important;
 }
 .show__wrapper {
   width: 100%;
@@ -102,11 +103,33 @@
     
       &__good {
         height: 60px;
-        background-color: gray;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 20px;
+      }
+      .iine__button__delete {
+        color: black;
+        border: 1px solid rgba(0,0,0,.1);
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 12px;
+        background-color: pink;
+      }
+      .iine__button {
+        color: black;
+        border: 1px solid rgba(0,0,0,.1);
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 12px;
+      }
+      .iine__count {
+        color: black;
+        font-size: 12px;
+        border: 1px solid rgba(0,0,0,.1);
+        border-radius: 2px;
+
       }
       &__other {
         border-top: 1px solid rgba(0,0,0, .1);

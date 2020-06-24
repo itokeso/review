@@ -9,7 +9,7 @@
     %br/
     あなたもアニレビュで一緒にレビュー生活を始めましょう！
     
-= form_for(@user, url: {action: "complete"}) do |f|
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field.my-5.border
     .field__name.mx-2.my-2

@@ -53,16 +53,11 @@
           = @post.rate
         .show__wrapper__main__review__header__text.mt-3
           = @post.review
+
+        -# いいね機能
       .show__wrapper__main__review__good
-        - if user_signed_in?
-          - if @post.favorited_by?(current_user)
-            %p
-            %span お気に入り解除:
-            = link_to @post.favorites.count, post_favorites_path(@post.id), method: :delete
-          - else 
-            %p
-            %span お気に入り登録:
-            = link_to @post.favorites.count, post_favorites_path(@post.id), method: :post
+        %div{:id => "favorites_buttons_#{@post.id}"}
+          = render partial: 'favorites/favorite', locals: { post: @post}
 
       .show__wrapper__main__review__other
         .show__wrapper__main__review__other__text
