@@ -26,6 +26,7 @@ $(function(){
                     <div class="review__form__anime">
                       <img class="review__form__anime__left" style="background-image: url(${image})">
                         <div class="review__form__anime__right">
+                          <a href= "/posts/new/" class = "review__form__anime__right__change">変更する</a>                
                           <div class="review__form__anime__right__title">
                             ${title}
                           </div>
@@ -48,7 +49,8 @@ $(function(){
       let html = `<div class="review__form" style="display: block; id= ${id}">
                     <div class="review__form__anime">
                       <img class="review__form__anime__left" style="background-image: url(${image})">
-                        <div class="review__form__anime__right">
+                        <div class="review__form__anime__right">  
+                          <a href= "/posts/new/" class = "review__form__anime__right__change">変更する</a>                
                           <div class="review__form__anime__right__title">
                             ${title}
                           </div>
@@ -66,7 +68,7 @@ $(function(){
     var input = $(this).val();
     $.ajax({
       type: 'GET',
-      url: '/posts/search',
+      url: '/animes/anime_id/posts/search',
       data: { keyword: input },
       dataType: 'json'
     })

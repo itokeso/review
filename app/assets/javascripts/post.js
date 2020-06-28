@@ -11,10 +11,15 @@ $(function(){
 $(function(){
   $('.review__select__btn').on('click',function(){
     $('.review__select__modal').fadeIn();
-    return false;
   });
   $('.far').on('click', function(){
     $('.review__select__modal').fadeOut();
-    return false;
   });
+  $(document).click(function(e){
+    let target = $(e.target);
+
+    if(target.hasClass('review__select__modal')) {
+      target.fadeOut();
+    }
+  })
 });

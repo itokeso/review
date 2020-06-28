@@ -76,6 +76,12 @@
           &__name {
             margin: 0 15px;
           }
+          &__count {
+            position: absolute;
+            top: 35px;
+            right: 120px;
+            color: red;
+          }
           &__right {
             position: absolute;
             top: 35px;
@@ -131,6 +137,7 @@
         border-radius: 2px;
 
       }
+      // 他のレビュー
       &__other {
         border-top: 1px solid rgba(0,0,0, .1);
         padding: 0;
@@ -147,21 +154,39 @@
           margin-top: 20px;
           position: relative;
           border-radius: 3px;
+          &:hover {
+            opacity: .8;
+            transition: .3s;
+          }
           &__title {
             font-weight: bold;
             font-size: 18px;
+            color: black;
           }
           &__text {
             font-size: 16px;
+            color: black;
+            &__link {
+              position: absolute;
+              right: 10px;
+              bottom: 30px;
+              font-size: 14px;
+            }
           }
           &__name {
             font-size: 10px;
             position: absolute;
             bottom: 5px;
+            color: black;
           }
           &__rate img{
             margin-bottom: 5px;
             width: 10px;
+          }
+          &__length {
+            position: absolute;
+            right: -300px;
+            bottom: 0;
           }
         }
       }

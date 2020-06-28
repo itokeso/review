@@ -3,19 +3,20 @@
   height: 100%;
   padding: 50px;
   background-color: #f5f0e3;
-  .review-wrapper {
+  &-wrapper {
     width: 800px;
     border: 1px solid gray ;
     margin: 0 auto;
     background-color: white;
     padding: 10px;
-    .review__post {
+    &__post {
       opacity: 0.8;
     }
-    .review__text {
+    &__text {
       font-size: 15px;
       }
 
+    // モーダルウィンドウ 
       .review__select {
         width: 100%;
         text-align: center;
@@ -26,15 +27,15 @@
         height: 60px;
         transition: all 0.3s;
         margin-top: 20px;
-        .review__select__modal {
+        &__modal {
           display:  none;
-          height: 100vh;
+          height: 120%;
+          width: 100%;
           position: fixed;
           top: 0px;
           left: 0px;
-          width: 100vw;
           background: rgba(0,0,0,0.8);
-          .review__select__modal__content {
+          &__content {
             background: #fff;
             left: 50%;
             padding: 10px;
@@ -59,7 +60,7 @@
                 }
               }
             }
-            .review__select__modal__content__search {
+            &__search {
               background-color: #f5f0e3; 
               padding: 15px; 
               margin-bottom: 30px;                    
@@ -70,17 +71,17 @@
               }           
             }  
           
-            .review__select__modal__content__title {
+            &__title {
               height: 150px;
               width: 558px;
               background-color: #f5f0e3; 
               border: 1px solid rgba(0,0,0,0.2);
               position: relative;
+              margin: 0 auto;
               &:hover {
                 border: 1px solid rgba(0,0,0,0.6);
               }
-              }
-              .review__select__modal__content__title__left {
+              &__left {
                 width: 100px;
                 height: 130px;
                 background-color: gray;
@@ -88,61 +89,69 @@
                 float: left;
                 margin: 10px;        
               }
+            
               .anime__image {
                 color: white;
                 width: 100px;
                 height: 130px;
                 position: absolute;
+                background-size: 100% 100%;
                 top: 10px;
                 left: 10px;
             
               }
-              .review__select__modal__content__title__right {
+              &__right {
                 position: relative;
-                .review__select__modal__content__title__right__title {
+                &__title {
                   position: absolute;
                   top: 20px;
                   left: 130px;
                   font-weight: bold;
                 }
-                .review__select__modal__content__title__right__genre {
+                &__genre {
                   position: absolute;
                   top: 70px;
                   left: 130px;
                   font-size: 15px;     
                 } 
             }                
-          
+          }
         }        
       }
     }
-    
+    // 評価フォーム
       .review__form {
         display: none;
-      }
-      .review__form__anime {
+      &__anime {
         position: relative;
         background-color:#f5f0e3 ;
         border: 1px solid gray ;
         padding: 5px;
-      .review__form__anime__left {
+      &__left {
         width: 120px;
         height: 150px;
+        background-size: 100% 100%;
       }
-        .review__form__anime__right__title {
+        &__right__title {
           position: absolute;
           top: 20px;
           left: 150px;
           font-size: 25px;
-        }  
-        .review__form__anime__right__genre {
+        } 
+        &__right__change {
           position: absolute;
-          top: 80px;
-          left: 150px;
+          font-size: 14px;
+          top: 10px;
+          right: 10px;
+        } 
+        &__right__genre {
+          position: absolute;
+          top: 75px;
+          left: 148px;
           font-size: 20px;
         }
       } 
-      .review__form__evalution {
+      &evalution {
         font-size: 15px;
         margin: 10px 10px 10px 0;
         &__star__label {
@@ -150,7 +159,7 @@
           margin-top: 5px;
         }
       }
-      .review__form__title {
+      &__title {
         input[type="text"] {
           width: 780px;
           height: 35px;
@@ -159,13 +168,13 @@
           outline: none;
         } 
       }
-      .review__form__field {
+      &__field {
         outline: none;
       }
-      .review__form__title__count {
+      &__title__count {
         font-size: 12px;
       }
-      .review__form__title__submit {
+      &__title__submit {
         text-align: center;
         .post-submit {
           width: 200px;
@@ -187,5 +196,6 @@
           border-bottom: none;
           }
         } 
+      }
     }
   }

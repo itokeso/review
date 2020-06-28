@@ -11,10 +11,10 @@
     %li.nav-item__robot
       ロボット
     %li.nav-item__fantasy
-      ファンタジー
+      スポーツ
     .navbar__right.d-flex
       -if user_signed_in? 
-        = link_to "感想を投稿する" , new_anime_post_path(@anime), class:"nav-link__review"
+        = link_to "感想を投稿する" , posts_new_path, class:"nav-link__review"
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link__logout", data: { confirm: "ログアウトしますか？"}
       -else
         = link_to "ログイン", new_user_session_path, method: :get,  class:"nav-link__login"

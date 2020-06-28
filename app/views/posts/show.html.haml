@@ -1,6 +1,6 @@
 .show__wrapper
   .show__wrapper__main
-    = link_to("#", class: "show__wrapper__main__link")do
+    = link_to(anime_path(@anime), class: "show__wrapper__main__link")do
       .show__wrapper__main__anime.mb-3
         .show__wrapper__main__anime__image
           = image_tag @post.anime.image.url
@@ -33,6 +33,8 @@
             = @post.user.name
           %li.show__wrapper__main__review__header__left__date
             = @post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          %span.show__wrapper__main__review__header__left__count
+            #{@post.favorites.count}
           %span.show__wrapper__main__review__header__left__right
             参考になった！
         .show__wrapper__main__review__header__title
@@ -52,7 +54,7 @@
             });
           = @post.rate
         .show__wrapper__main__review__header__text.mt-3
-          = @post.review
+          = simple_format(@post.review)
 
         -# いいね機能
       .show__wrapper__main__review__good
@@ -61,35 +63,38 @@
 
       .show__wrapper__main__review__other
         .show__wrapper__main__review__other__text
-          他のレビュアーの感想・評価
-      - @anime.posts.shuffle.first(3).each do |post|
-        .show__wrapper__main__review__other__block
-          .show__wrapper__main__review__other__block__title
-            = post.title
-          .show__wrapper__main__review__other__block__text
-            = post.review.truncate(175)
-          -if post.review.length >= 175
-            = link_to '>>続きを読む', anime_post_path(post.anime, post), class:'show__text__link'
-          .show__wrapper__main__review__other__block__name
-            = post.user.name
-            %span.show__wrapper__main__review__other__block__time.mx-3
-              = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
-            %span.show__wrapper__main__review__other__block__rate.mx-1
-              評価:  
-              %span{:id => "other-rate-#{post.id}"}
-              :javascript
-                $('#other-rate-#{post.id}').raty({
-                  size: 36,
-                  starOff:  '#{asset_path('star-off.png')}',
-                  starOn : '#{asset_path('star-on.png')}',
-                  starHalf: '#{asset_path('star-half.png')}',
-                  half: true,
-                  readOnly: true,
-                  score: #{post.rate}
-                });
-            = post.rate
-            %span.show__wrapper__main__review__other__block__length.mx-5
-              = post.review.length.to_s + "文字"
+          他のレビュアーの感想・評価     
+          - @anime.posts.shuffle.first(3).each do |post|
+            = link_to(anime_post_path(post.anime, post))do
+              .show__wrapper__main__review__other__block
+                .show__wrapper__main__review__other__block__title
+                  = post.title
+                .show__wrapper__main__review__other__block__text
+                  = post.review.truncate(175)
+                -if post.review.length >= 175
+                  = link_to '>>続きを読む', anime_post_path(post.anime, post), class:'show__wrapper__main__review__other__block__text__link'
+                .show__wrapper__main__review__other__block__name
+                  = post.user.name
+                  %span.show__wrapper__main__review__other__block__time.mx-3
+                    = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                  %span.show__wrapper__main__review__other__block__rate.mx-1
+                    評価:  
+                    %span{:id => "other-rate-#{post.id}"}
+                    :javascript
+                      $('#other-rate-#{post.id}').raty({
+                        size: 36,
+                        starOff:  '#{asset_path('star-off.png')}',
+                        starOn : '#{asset_path('star-on.png')}',
+                        starHalf: '#{asset_path('star-half.png')}',
+                        half: true,
+                        readOnly: true,
+                        score: #{post.rate}
+                      });
+                  = post.rate
+                  %span.show__wrapper__main__review__other__block__length.mx-5
+                    = post.review.length.to_s + "文字"
+
+
 .main.flex 
   = render partial: 'right'
   :css

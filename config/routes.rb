@@ -2,14 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
   root "posts#index"
   
-  resources :animes, only: [:new, :create] do 
-    resources :posts, only: [:new, :create, :index, :show] 
-    resources :posts, only: [:search] 
-      collection do
-      get 'search'
+  get "animes/:id/index" => "animes#index", as: :animes
+  get "posts/new" => "posts#new"
+  post "posts/:post_id/favorites" => "favorites#create", as: :post_favorites
+  delete "posts/:post_id/favorites" => "favorites#destroy"
+    resources :animes, only: [ :new, :create, :show] do 
+      resources :posts, only: [:create, :index, :show] do
+      resources :posts, only: [:search] 
+        collection do
+        get 'search'
+      end
     end
-  end
-  resources :posts, only: [:new, :create, :index, :show] do
-    resource :favorites, only: [:create, :destroy]
   end
 end

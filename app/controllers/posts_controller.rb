@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :create]
   def index
-    @posts = Post.all.page(params[:page]).per(5)
+    @posts = Post.all.page(params[:page]).order(id: 'desc').per(5)
     @anime =  Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(12).pluck(:anime_id))
-    @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(3).pluck(:anime_id))
+    @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
   end
 
   def new
@@ -23,9 +23,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @anime = Anime.find(params[:anime_id])
-    @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(3).pluck(:anime_id))
-    # @favorite = Favorite.new
+    @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
+    @anime = Anime.find(params[:anime_id]) 
+    # @anime_other = @anime.posts.where.not(user_id: current_user.id)
   end
 
   def search
