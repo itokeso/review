@@ -1,0 +1,15 @@
+- if user_signed_in? && @post.user.id != current_user.id
+  - if @post.favorited_by?(current_user) 
+    = link_to(post_favorites_path(@post.id), method: :delete, remote: true)do 
+      %span.iine__button__delete.px-1.py-1
+        参考になった！
+      %span.iine__count.ml-3.px-1.py-1
+        = @post.favorites.count
+  - else 
+    = link_to(post_favorites_path(@post.id), method: :post, remote: true)do 
+      %span.iine__button.px-1.py-1
+        参考になった！
+      %span.iine__count.ml-3.px-1.py-1
+        = @post.favorites.count
+-else 
+  このレビューは#{@post.favorites.count}人の参考になっています！

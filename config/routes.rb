@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
-    :registrations => 'users/registrations'
-  }
-
-  devise_scope :user do
-    post 'users/sign_up/complete' => 'users/registrations#complete'
-  end
-
+  devise_for :users
   root "posts#index"
-  resources :animes, only: [:new, :create] 
-  resources :posts, only: [:new, :create, :index] 
   
-
+  get "animes/:id/index" => "animes#index", as: :animes
+  get "posts/new" => "posts#new"
+  post "posts/:post_id/favorites" => "favorites#create", as: :post_favorites
+  delete "posts/:post_id/favorites" => "favorites#destroy"
+    resources :animes, only: [ :new, :create, :show] do 
+      resources :posts, only: [:create, :index, :show] do
+      resources :posts, only: [:search] 
+        collection do
+        get 'search'
+      end
+    end
+  end
 end

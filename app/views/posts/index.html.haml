@@ -1,154 +1,57 @@
-.slick.py-3.px-3.border
-  %div
-    %h3 1
-  %div
-    %h3 2
-  %div
-    %h3 3
-  %div
-    %h3 4
-  %div
-    %h3 5
-  %div
-    %h3 6
-  %div
-    %h3 7
-  %div
-    %h3 8
-  %div
-    %h3 9
-  %div
-    %h3 10
-  %div
-    %h3 11
-  %div
-    %h3 12
+.slick.border
+  人気の作品
+  -@anime.each do |anime|
+    .slick__block
+      = link_to('#', class: "slick__link") do
+        .slick__image.my-4
+          = image_tag anime.image.url
+          .slick__image__tag
+            = anime.genre
+          .slick__image__title.my-1
+            = anime.title
+
 .main.py-3.px-3
   .main__left
-    アニメを観た作品の新着感想
-    .main-review1.mt-3
-      = link_to "BLEACH" , "#", class:"image1"
-      .main-review__title
-        今までとは違った面白さ
-      .main-review__text
-        始まり方がユニークまずもって一番最初の始まりが拘置所からって。主人公がまさ
-        %br/
-        かの不良で捕まっちゃってるよってところから始まるのはなかなか斬新でしたね。
-        %br/
-        しかも本人捕まったことに対して何にも悪びれることなくむしろ快適にすごしちゃ
-        %br/
-        ってるあたりがほんと肝が座っているというのかなんというのか。初めてのことじ
-        %br/
-        ゃないから・・・
-    .main-review2.mt-3
-      = link_to "BLEACH" , "#", class:"image1"
-      .main-review__title
-        今までとは違った面白さ
-      .main-review__text
-        始まり方がユニークまずもって一番最初の始まりが拘置所からって。主人公がまさ
-        %br/
-        かの不良で捕まっちゃってるよってところから始まるのはなかなか斬新でしたね。
-        %br/
-        しかも本人捕まったことに対して何にも悪びれることなくむしろ快適にすごしちゃ
-        %br/
-        ってるあたりがほんと肝が座っているというのかなんというのか。初めてのことじ
-        %br/
-        ゃないから・・・
-    .main-review3.mt-3
-      = link_to "BLEACH" , "#", class:"image1"
-      .main-review__title
-        今までとは違った面白さ
-      .main-review__text
-        始まり方がユニークまずもって一番最初の始まりが拘置所からって。主人公がまさ
-        %br/
-        かの不良で捕まっちゃってるよってところから始まるのはなかなか斬新でしたね。
-        %br/
-        しかも本人捕まったことに対して何にも悪びれることなくむしろ快適にすごしちゃ
-        %br/
-        ってるあたりがほんと肝が座っているというのかなんというのか。初めてのことじ
-        %br/
-        ゃないから・・・
-    .main-review4.mt-3
-      = link_to "BLEACH" , "#", class:"image1"
-      .main-review__title
-        今までとは違った面白さ
-      .main-review__text
-        始まり方がユニークまずもって一番最初の始まりが拘置所からって。主人公がまさ
-        %br/
-        かの不良で捕まっちゃってるよってところから始まるのはなかなか斬新でしたね。
-        %br/
-        しかも本人捕まったことに対して何にも悪びれることなくむしろ快適にすごしちゃ
-        %br/
-        ってるあたりがほんと肝が座っているというのかなんというのか。初めてのことじ
-        %br/
-        ゃないから・・・
-    .main-review5.mt-3
-      = link_to "BLEACH" , "#", class:"image1"
-      .main-review__title
-        今までとは違った面白さ
-      .main-review__text
-        始まり方がユニークまずもって一番最初の始まりが拘置所からって。主人公がまさ
-        %br/
-        かの不良で捕まっちゃってるよってところから始まるのはなかなか斬新でしたね。
-        %br/
-        しかも本人捕まったことに対して何にも悪びれることなくむしろ快適にすごしちゃ
-        %br/
-        ってるあたりがほんと肝が座っているというのかなんというのか。初めてのことじ
-        %br/
-        ゃないから・・・
+    .main__left__text
+      アニメを観た作品の新着感想
+      -@posts.each do |post|
+        .main__left__form
+          = link_to("#", class: "image") do
+            .main-review.mt-3
+              = image_tag post.anime.image.url, class:"anime__image"
+              .main-review__anime
+                = post.anime.title
 
-  .main__right.mx-3
-    .main__right__box.my-3
-      人気の作品ランキング
-      %ul.main__right__box__list
-        %li.main__right__box__list__rank
-          =link_to "1", "#"
-          .main__right__box__list__rank__image
-            = link_to "画像", "#" 
-          .main__right__box__list__title
-            BLEACH
+          = link_to(anime_post_path(post.anime, post), class: "show") do
+            .main__left__block
+              .main-review__title
+                = post.title
+              .main-review__text
+                = post.review.truncate(175)
+              -if post.review.length >= 175
+                = link_to '>>続きを読む', anime_post_path(post.anime, post), class:'main-review__text__link'
+              .main__left__block__name
+                = post.user.name
+                %span.main__left__block__name__time
+                  = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
-      %ul.main__right__box__list
-        %li.main__right__box__list__rank
-          =link_to "1", "#"
-          .main__right__box__list__rank__image
-            = link_to "画像", "#" 
-          .main__right__box__list__title
-            BLEACH
+                %span.main-review__rate
+                  評価:  
+                  %span{:id => "star-rate-#{post.id}"}
+                  :javascript
+                    $('#star-rate-#{post.id}').raty({
+                      size: 36,
+                      starOff:  '#{asset_path('star-off.png')}',
+                      starOn : '#{asset_path('star-on.png')}',
+                      starHalf: '#{asset_path('star-half.png')}',
+                      half: true,
+                      readOnly: true,
+                      score: #{post.rate}
+                    });
+                = post.rate
+                %span.main__left__block__name__length
+                  = post.review.length.to_s + "文字"
+    .pagenate              
+      = paginate @posts  
 
-      %ul.main__right__box__list
-        %li.main__right__box__list__rank
-          =link_to "1", "#"
-          .main__right__box__list__rank__image
-            = link_to "画像", "#" 
-          .main__right__box__list__title
-            BLEACH
-
-      %ul.main__right__box__list
-        %li.main__right__box__list__rank
-          =link_to "1", "#"
-          .main__right__box__list__rank__image
-            = link_to "画像", "#" 
-          .main__right__box__list__title
-            BLEACH
-
-      %ul.main__right__box__list
-        %li.main__right__box__list__rank
-          =link_to "1", "#"
-          .main__right__box__list__rank__image
-            = link_to "画像", "#" 
-          .main__right__box__list__title
-            BLEACH  
-    
-    .main__right__genre
-      .main__right__genre__text.mx-3.my-3
-        作品を探す
-      .main__right__genre__category
-        = link_to "バトル", "#", class:"battle"
-        = link_to "恋愛", "#", class:"love"
-        = link_to "学園", "#", class:"school"
-        = link_to "SF", "#", class:"sf"
-        = link_to "ロボット", "#", class:"robot"
-        = link_to "ファンタジー", "#", class:"fantasy"
-        
-      
+  = render partial: "right"

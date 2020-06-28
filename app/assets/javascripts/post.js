@@ -6,3 +6,20 @@ $(function(){
   });
 });
 
+
+// モーダルウインドウ
+$(function(){
+  $('.review__select__btn').on('click',function(){
+    $('.review__select__modal').fadeIn();
+  });
+  $('.far').on('click', function(){
+    $('.review__select__modal').fadeOut();
+  });
+  $(document).click(function(e){
+    let target = $(e.target);
+
+    if(target.hasClass('review__select__modal')) {
+      target.fadeOut();
+    }
+  })
+});

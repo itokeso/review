@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_111916) do
+ActiveRecord::Schema.define(version: 2020_06_27_071631) do
 
   create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "genre", null: false
     t.text "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "detail"
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,8 +32,11 @@ ActiveRecord::Schema.define(version: 2020_05_26_111916) do
     t.string "title", default: "", null: false
     t.text "review", null: false
     t.bigint "user_id", null: false
+    t.bigint "anime_id", null: false
+    t.float "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_posts_on_anime_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -42,5 +53,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_111916) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "animes"
   add_foreign_key "posts", "users"
 end
