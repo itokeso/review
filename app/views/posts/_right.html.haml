@@ -1,16 +1,16 @@
 .main__right.mx-3
-  .main__right__box.my-3
+  .main__right__box
     レビュー数上位ランキング
     - @all_ranks.each.with_index(1) do |anime, i|
       %ul.main__right__box__list
         %li.main__right__box__list__rank
-          =link_to('#', class: "rank") do
+          =link_to(anime_path(anime), class: "rank") do
             .main__right__box__list__rank__best
               第#{i}位
             .main__right__box__list__rank__image.my-3
               = image_tag anime.image.url
             .main__right__box__list__rank__title
-              = anime.title 
+              = anime.title
 
             %span.right__review__rate
               評価:  
@@ -30,15 +30,12 @@
                 口コミ
                 = "#{anime.posts.count}" + "件"
               .right__review__rate__genre
-                = "ジャンル: " + anime.genre
+                = "ジャンル:#{anime.category.name}"
 
   .main__right__genre
     .main__right__genre__text.mx-3.my-3
       作品を探す
     .main__right__genre__category
-      = link_to "バトル", "#", class:"battle"
-      = link_to "恋愛", "#", class:"love"
-      = link_to "学園", "#", class:"school"
-      = link_to "SF", "#", class:"sf"
-      = link_to "ロボット", "#", class:"robot"
-      = link_to "スポーツ", "#", class:"fantasy"
+      - @categories.each do |category|
+        = link_to(categories_show_path(category), class: "battle")do
+          = category.name

@@ -4,6 +4,10 @@
   outline: none;
 }
 
+body {
+  background-color: #FEEABC;
+}
+
 // スライド
 .slick {
   height: 230px;
@@ -87,6 +91,7 @@
   border: 1px solid gray;
   width: 800px;
   margin: 0 auto;
+  background-color: #ffc679;
   &__text {
     margin: 15px 0;
   }
@@ -113,8 +118,9 @@
   .main-review__anime {
     position: absolute;
     top: 165px;
-    left: 18px;
+    left: 25px;
     font-size: 13px;
+    width: 100px;
   }
 
   .show {
@@ -123,7 +129,7 @@
 &__block {
   width: 610px;
   height: 200px;
-  background-color: beige;
+  background-color: #EFEFEF;
   float: right;
   padding: 10px;
   margin-bottom: 5px;
@@ -178,11 +184,13 @@
 }
 
 .main__right {
+  background-color: white;
+  height: 926px;
   &__box {
     border: 1px solid rgba(0,0,0,.2);
     &__list {
       margin-top: 10px;
-      background-color: beige;
+      background-color: #FFC679;
       &:hover {
         opacity: 0.8;
         transition: 0.3s;
@@ -194,6 +202,7 @@
           position: absolute;
           top: 45px;
           left: -25px;
+          color: black;
         }
         &__image img {
           height: 80px;
@@ -232,8 +241,8 @@
   &__text {
     opacity: 0.8;
   }
-  &__category {
-    .battle {
+  &__category a {
+    &:nth-child(1) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 25px;
@@ -247,7 +256,7 @@
         transition: .3s;
       }
     }
-    .love {
+    &:nth-child(2) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 30px ;
@@ -262,7 +271,7 @@
       }
 
     }
-    .school {
+    &:nth-child(3) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2); 
       padding: 5px 33px;
@@ -277,7 +286,7 @@
       }
 
     }
-    .sf {
+    &:nth-child(4) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 37px;
@@ -292,7 +301,7 @@
       }
 
     }
-    .robot {
+    &:nth-child(5) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 17px;
@@ -307,7 +316,7 @@
       }
       
     }
-    .fantasy {
+    &:nth-child(6) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 15px;

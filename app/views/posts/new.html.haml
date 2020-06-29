@@ -24,7 +24,7 @@
               = search_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__select__modal__content__search__field"
             .review__select__modal__content__title
               -@anime.each do |anime|
-                %label{ for:"label", class:"label__field", data:{id: anime.id, title: anime.title, genre: anime.genre, image: anime.image.url}}
+                %label{ for:"label", class:"label__field", data:{id: anime.id, title: anime.title, genre: anime.category, image: anime.image.url}}
                   .review__select__modal__content__title
                     %img.review__select__modal__content__title__left
                       = image_tag anime.image_url, class:"anime__image"
@@ -32,7 +32,7 @@
                         .review__select__modal__content__title__right__title
                           = anime.title 
                         .review__select__modal__content__title__right__genre
-                          = anime.genre
+                          = anime.category.name
         
     = form_for [@post], url: anime_posts_path(@anime) do |f|
       -# jsでフォームを追加、form_forのなかにanimeidを入れる（jsで）

@@ -23,7 +23,7 @@ class AnimesController < ApplicationController
     @anime = Anime.find(params[:id])
     @post = @anime.posts.order(id: "desc").limit(3)
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
-
+    @categories = Category.all
   end
   private
   def anime_params

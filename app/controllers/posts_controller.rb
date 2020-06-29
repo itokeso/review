@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.all.page(params[:page]).order(id: 'desc').per(5)
     @anime =  Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(12).pluck(:anime_id))
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
+    @categories = Category.all
   end
 
   def new
@@ -25,6 +26,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
     @anime = Anime.find(params[:anime_id]) 
+    @categories = Category.all
+
     # @anime_other = @anime.posts.where.not(user_id: current_user.id)
   end
 

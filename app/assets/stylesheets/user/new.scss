@@ -10,7 +10,7 @@
 
   .header {
     height: 100px;
-    background-color: #f5f0e3;
+    background-color: #F6B352;
     &__left__title a {
       font-family: 'Fredoka One', cursive;
       font-size: 40px;
@@ -212,7 +212,7 @@
   
   .footer {
     height: 100px;
-    background-color: #383838;
+    background-color: #F6B352;
     position: relative;
     &__logo {
       font-family: 'Fredoka One', cursive;
@@ -233,8 +233,9 @@
       }
     }
   
+    // スクロールボタン
     .fa {
-      color: pink;
+      color: #4C4C4C;
       font-size: 60px;
       cursor: pointer;
       position: absolute;

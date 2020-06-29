@@ -6,7 +6,7 @@
         .slick__image.my-4
           = image_tag anime.image.url
           .slick__image__tag
-            = anime.genre
+            = anime.category.name
           .slick__image__title.my-1
             = anime.title
 
@@ -20,7 +20,7 @@
             .main-review.mt-3
               = image_tag post.anime.image.url, class:"anime__image"
               .main-review__anime
-                = post.anime.title
+                = post.anime.title.truncate(17)
 
           = link_to(anime_post_path(post.anime, post), class: "show") do
             .main__left__block

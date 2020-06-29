@@ -1,4 +1,4 @@
-.show__wrapper
+.show__wrapper.pt-2
   .show__wrapper__main
     = link_to(anime_path(@anime), class: "show__wrapper__main__link")do
       .show__wrapper__main__anime.mb-3
@@ -26,7 +26,7 @@
                 });
             = @anime.posts.average(:rate).to_f.round(1)
       
-    .show__wrapper__main__review
+    .show__wrapper__main__review.mb-3
       .show__wrapper__main__review__header.px-3.py-3
         %ul.show__wrapper__main__review__header__left
           %li.show__wrapper__main__review__header__left__name
@@ -66,7 +66,7 @@
           他のレビュアーの感想・評価     
           - @anime.posts.shuffle.first(3).each do |post|
             = link_to(anime_post_path(post.anime, post))do
-              .show__wrapper__main__review__other__block
+              .show__wrapper__main__review__other__block.my-3
                 .show__wrapper__main__review__other__block__title
                   = post.title
                 .show__wrapper__main__review__other__block__text
@@ -100,6 +100,6 @@
   :css
     .main__right {
       position: absolute;
-      top: 332px;
+      top: 352px;
       right: 250px;
     }
