@@ -12,7 +12,7 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field.my-5.border
-    .field__name.mx-2.my-2
+    .field__name.mx-2.my-3
       = f.label :name, class:"content__name"
       .field__name__text.ml-2
         *12文字以内
@@ -24,7 +24,7 @@
         %span.error_name
     
       %br/
-    .field__email.mx-2.my-2  
+    .field__email.mx-2.my-3 
       = f.label :email, class:"content__email"
       .field__email__text.ml-2
         *半角英数字
@@ -34,7 +34,7 @@
       = f.email_field :email,class:"content__email__field",  autofocus: true, autocomplete: "email"
       %span.error_email
     
-    .field__pass.mx-2.my-2
+    .field__pass.mx-2.my-3
       = f.label :password , class:"content__password"
       .field__pass__text.ml-2
         *8文字以上の半角英数字
@@ -44,7 +44,7 @@
       = f.password_field :password, class:"content__password__field", autocomplete: "new-password"
       %span.error_pass
       
-    .field__pass2.mx-2.my-2
+    .field__pass2.mx-2.my-3
       = f.label :password_confirmation, class:"content__password2"
       .field__pass2__text.ml-2
         ※パスワード再入力

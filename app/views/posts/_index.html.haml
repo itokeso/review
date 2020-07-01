@@ -1,0 +1,43 @@
+.main.py-3.px-3
+  .main__left
+    .main__left__text.py-2
+      作品の感想
+    -@posts.each do |post|
+      .main__left__form
+        = link_to(anime_path(post.anime), class: "image") do
+          .main-review.mt-3
+            = image_tag post.anime.image.url, class:"anime__image"
+            .main-review__anime
+              = post.anime.title.truncate(17)
+
+        = link_to(anime_post_path(post.anime, post), class: "show") do
+          .main__left__block
+            .main-review__title
+              = post.title
+            .main-review__text
+              = post.review.truncate(175)
+            -if post.review.length >= 175
+              = link_to '>>続きを読む', anime_post_path(post.anime, post), class:'main-review__text__link'
+            .main__left__block__name
+              = post.user.name
+              %span.main__left__block__name__time
+                = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+
+              %span.main-review__rate
+                評価:  
+                %span{:id => "star-rate-#{post.id}"}
+                :javascript
+                  $('#star-rate-#{post.id}').raty({
+                    size: 36,
+                    starOff:  '#{asset_path('star-off.png')}',
+                    starOn : '#{asset_path('star-on.png')}',
+                    starHalf: '#{asset_path('star-half.png')}',
+                    half: true,
+                    readOnly: true,
+                    score: #{post.rate}
+                  });
+              = post.rate
+              %span.main__left__block__name__length
+                = post.review.length.to_s + "文字"
+    .pagenate              
+      = paginate @posts  

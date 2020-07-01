@@ -1,6 +1,6 @@
 class AnimesController < ApplicationController
-  before_action :authenticate_user!,　only:[:new, :create]
-
+  before_action :authenticate_user!,  only:[:new, :create]
+  
   def index
     @anime = Anime.find(params[:id])
     @genre = @anime.genre

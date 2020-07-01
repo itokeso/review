@@ -1,40 +1,33 @@
 .category__wrapper.pb-2
-  .category__wrapper__header.p-3
+  .category__wrapper__text.my-3
     = "#{@category.name}のおすすめアニメ一覧"
-  .category__wrapper__main
-    - @category.animes.each do |category|
-      = link_to(anime_path(category), class: "category__wrapper__main__link")do
-        .category__wrapper__main__block
-          .category__wrapper__main__block__left
-            = image_tag category.image.url
-          .category__wrapper__main__block__right
-            .category__wrapper__main__block__right__title.mb-2
-              = category.title
-    
-            %span.category__wrapper__main__block__right__rate
-              評価:  
-              %span{:id => "rate-#{category.id}"}
-              :javascript
-                $('#rate-#{category.id}').raty({
-                  size: 36,
-                  starOff:  '#{asset_path('star-off.png')}',
-                  starOn : '#{asset_path('star-on.png')}',
-                  starHalf: '#{asset_path('star-half.png')}',
-                  half: true,
-                  readOnly: true,
-                  score: #{category.posts.average(:rate).to_f.round(1)}  
-                });
-              = category.posts.average(:rate).to_f.round(1)
-              .category__wrapper__main__block__right__count.my-2
-                口コミ
-                = "#{category.posts.count}" + "件"
-              .category__wrapper__main__block__righ__category.pb-3
-                = "ジャンル:#{@category.name}"
-.main.flex 
-  = render partial: 'posts/right'
-  :css
-    .main__right {
-      position: absolute;
-      top: 200px;
-      right: 250px;
-    }
+  .category__wrapper__header.p-3
+    .category__wrapper__main
+      - @category.animes.each do |category|
+        = link_to(anime_path(category), class: "category__wrapper__main__link")do
+          .category__wrapper__main__block
+            .category__wrapper__main__block__left
+              = image_tag category.image.url
+            .category__wrapper__main__block__right
+              .category__wrapper__main__block__right__title.mb-2
+                = category.title
+                
+              %span.category__wrapper__main__block__right__rate
+                評価:  
+                %span{:id => "rate-#{category.id}"}
+                :javascript
+                  $('#rate-#{category.id}').raty({
+                    size: 36,
+                    starOff:  '#{asset_path('star-off.png')}',
+                    starOn : '#{asset_path('star-on.png')}',
+                    starHalf: '#{asset_path('star-half.png')}',
+                    half: true,
+                    readOnly: true,
+                    score: #{category.posts.average(:rate).to_f.round(1)}  
+                  });
+                = category.posts.average(:rate).to_f.round(1)
+                .category__wrapper__main__block__right__count.my-2
+                  口コミ
+                  = "#{category.posts.count}" + "件"
+                .category__wrapper__main__block__righ__category.pb-3
+                  = "ジャンル:#{@category.name}"

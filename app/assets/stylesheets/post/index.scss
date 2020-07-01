@@ -84,32 +84,32 @@ body {
 
 // レビュー
 .main {
-  display: flex;
-  justify-content: space-around;
   margin: 0 70px;
 .main__left {
   border: 1px solid gray;
   width: 800px;
-  margin: 0 auto;
-  background-color: #ffc679;
   &__text {
-    margin: 15px 0;
+    background-color: white;
+    text-align: center;
   }
   &__form {
     border-top: 1px solid rgba(0,0,0,.2);
     border-bottom: 1px solid rgba(0,0,0,.2);
     height: 230px;
+    background-color: #EFEFEF;
+
   }
 
   .main-review {
     position: relative;
   }
   .anime__image {
-    float: left;
+    position: absolute;
+    left: 35px;
     height: 140px;
     width: 100px;
     margin: 20px;
-    background-color: gray;
+    border: 1px solid rgba(0,0,0,.2);
     &:hover {
     opacity: 0.8;
     transition: 0.3s;
@@ -118,7 +118,7 @@ body {
   .main-review__anime {
     position: absolute;
     top: 165px;
-    left: 25px;
+    left: 60px;
     font-size: 13px;
     width: 100px;
   }
@@ -127,8 +127,9 @@ body {
     text-decoration: none;
   }
 &__block {
-  width: 610px;
+  width: 580px;
   height: 200px;
+  border: 1px solid rgba(0,0,0,.3);
   background-color: #EFEFEF;
   float: right;
   padding: 10px;
@@ -186,11 +187,14 @@ body {
 .main__right {
   background-color: white;
   height: 926px;
+  position: absolute;
+  top: 390px;
+  right: 180px;
   &__box {
     border: 1px solid rgba(0,0,0,.2);
     &__list {
       margin-top: 10px;
-      background-color: #FFC679;
+      background-color: #FFF4E0;
       &:hover {
         opacity: 0.8;
         transition: 0.3s;
@@ -334,6 +338,36 @@ body {
 }
 }
 
-.pagination {
+// ページネーション
+.pagination span{
   font-size: 20px;
-}  
+  background-color: white;
+  border: 1px solid #e9e7e1;
+  padding: 5px;
+  color: #bbb;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 5px;
+} 
+
+.page {
+  margin-left: 5px;
+}
+.pagegap {
+  margin-left: 5px;
+}
+.next {
+  margin-left: 5px;
+}
+.last {
+  margin-left: 5px;
+}
+.first {
+  margin-right: 5px;
+}
+.pagenate {
+  background-color: white;
+  padding: 10px 0;
+  & a {
+    color: black;
+  }
+}

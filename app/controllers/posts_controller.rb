@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
+  
   def index
     @posts = Post.all.page(params[:page]).order(id: 'desc').per(5)
     @anime =  Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(12).pluck(:anime_id))
@@ -27,7 +28,6 @@ class PostsController < ApplicationController
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
     @anime = Anime.find(params[:anime_id]) 
     @categories = Category.all
-
     # @anime_other = @anime.posts.where.not(user_id: current_user.id)
   end
 
