@@ -73,7 +73,7 @@ $(function(){
       dataType: 'json'
     })
     .done(function(anime) {
-    　$(".review__select__modal__content__title").empty();
+      $(".review__select__modal__content__title").empty();
     if (anime.length !== 0) {
         anime.forEach(function(anime){
         appendAnime(anime);    
@@ -84,7 +84,7 @@ $(function(){
     }  else {
         appendErrMsg("一致するアニメはありません。");
     }
-　　　 }) 
+  }) 
     .fail(function(){
       alert('通信エラーです')
     });
@@ -98,7 +98,7 @@ $(function(){
     $('.review__select__modal').fadeOut();
     $('.review__select').hide()
       addForm(title, id, genre, image)
-    　saveAnime(id)
+      saveAnime(id)
 
   });
 

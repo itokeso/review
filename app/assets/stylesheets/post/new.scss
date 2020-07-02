@@ -151,9 +151,10 @@
           font-size: 20px;
         }
       } 
-      &evalution {
+      &__evalution {
         font-size: 15px;
         margin: 10px 10px 10px 0;
+        border: 1px solid rgba(0,0,0,0.1);
         &__star__label {
           margin-right: 10px;
           margin-top: 5px;
@@ -161,7 +162,7 @@
       }
       &__title {
         input[type="text"] {
-          width: 780px;
+          width: 775px;
           height: 35px;
           border-radius: 5px;
           margin-bottom: 30px;
@@ -189,13 +190,13 @@
           color: #fff;
           margin: 30px 0;
           margin: 0 auto;
-        }
         &:active {
           -webkit-transform: translateY(4px);
           transform: translateY(4px);
           border-bottom: none;
           }
-        } 
-      }
+        }
+      } 
     }
   }
+}

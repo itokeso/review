@@ -24,7 +24,7 @@
               = search_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__select__modal__content__search__field"
             .review__select__modal__content__title
               -@anime.each do |anime|
-                %label{ for:"label", class:"label__field", data:{id: anime.id, title: anime.title, genre: anime.category, image: anime.image.url}}
+                %label{ for:"label", class:"label__field", data:{id: anime.id, title: anime.title, genre: anime.category.name, image: anime.image.url}}
                   .review__select__modal__content__title
                     %img.review__select__modal__content__title__left
                       = image_tag anime.image_url, class:"anime__image"
@@ -38,14 +38,14 @@
       -# jsでフォームを追加、form_forのなかにanimeidを入れる（jsで）
       .review__form__evalution     
         %span.review__form__evalution__star#star
-          = f.label :rate, '総合評価', class: "review__form__evalution__star__label"
+          = f.label :rate, '総合評価:', class: "review__form__evalution__star__label"
           = f.hidden_field :rate, id: :review_star
       .form-group.review__form__title
         = f.text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__form__title"
         .review__form__title__field
-          = f.text_area :review , autofocus: true, placeholder: '感想を入力して下さい', class:"review__form__field", rows:"13", cols:"94"
-        .review__form__title__count.mb-4
-          0文字（200文字未満の感想は作品ページに表示されませんのでご了承ください）
+          = f.text_area :review , autofocus: true, placeholder: '感想を入力して下さい', class:"review__form__field",id:"new__review", rows:"13", cols:"94"
+        .review__form__title__count#new__count.mb-4
+          0文字
         .review__form__title__submit
           = f.submit "投稿する", class:"post-submit"
 
@@ -57,4 +57,4 @@
     starHalf: '#{asset_path('star-half.png')}',
     scoreName: 'post[rate]',
     half: true,
-  });　　
+  });

@@ -1,3 +1,4 @@
+// マイページアコーディオン
 $(function(){
   $("#list").css('display', 'none');
   $('#mypage').on('click', function(){

@@ -30,6 +30,31 @@ class PostsController < ApplicationController
     @categories = Category.all
     # @anime_other = @anime.posts.where.not(user_id: current_user.id)
   end
+  
+  def edit
+    @post = Post.find(params[:id])
+    @anime = @post.anime.id
+  end
+
+  def update
+
+    @post = Post.find(params[:id])
+    @anime = @post.anime.id
+    if @post.update(post_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.delete
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
   def search
     @animes = Anime.where('title LIKE(?)', "%#{params[:keyword]}%")
