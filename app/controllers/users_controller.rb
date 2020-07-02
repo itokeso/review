@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
   end
   
-  def like
-    @user = User.find(params[:id])
-    @like = @user.favorites.id
+  def reference
+    @user = current_user
+    @references = @user.favorited_posts
   end
 end

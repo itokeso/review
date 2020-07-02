@@ -1,0 +1,44 @@
+.user__reference.mb-3
+  .user__reference__review.my-3
+    参考になった感想
+    %span.user__reference__review__count
+      = "(#{@references.count}件)"
+  .user__reference__main
+    .user__reference__main__text.py-2
+      作品の感想
+    - @references.each do |reference|
+      .user__reference__main__form
+        = link_to(anime_path(reference.anime), class: "user__reference__main__form__link")do
+          .user__reference__main__form__left
+            = image_tag reference.anime.image.url, class: "user__reference__main__form__left__image"
+            .user__reference__main__form__left__title
+              = reference.anime.title.truncate(20)
+
+          = link_to(anime_post_path(reference.anime, reference), class: "user__reference__main__form__post")do
+            .user__reference__main__form__right
+              .user__reference__main__form__right__title.mb-2
+                = reference.title
+              .user__reference__main__form__right__text
+                = reference.review.truncate(175)
+              -if reference.review.length >= 175
+                = link_to '>>続きを読む', anime_post_path(reference.anime, reference), class: "user__reference__main__form__right__text__link"
+              .user__reference__main__form__right__name
+                = reference.user.name
+                %span.user__reference__main__form__right__name__time
+                  = reference.created_at.strftime("%Y年%m月%d日 %H時%M分")
+                %span.user__reference__main__form__right__name__rate
+                  評価:  
+                  %span{:id => "user-reference-rate-#{reference.id}"}
+                  :javascript
+                    $('#user-reference-rate-#{reference.id}').raty({
+                      size: 36,
+                      starOff:  '#{asset_path('star-off.png')}',
+                      starOn : '#{asset_path('star-on.png')}',
+                      starHalf: '#{asset_path('star-half.png')}',
+                      half: true,
+                      readOnly: true,
+                      score: #{reference.rate}
+                    });
+                = reference.rate
+                %span.user__reference__main__form__right__name__length
+                = reference.review.length.to_s + "文字"

@@ -10,9 +10,13 @@ body {
 
 // スライド
 .slick {
-  height: 230px;
-  width: 100%;
-  background-color: beige;
+  height: 215px;
+  width: 800px;
+  background-color: white;
+  margin: 0 auto;
+  &-next {
+    color: gray;
+  }
   &__text {
     font-size: 16px;
   
@@ -94,10 +98,8 @@ body {
   }
   &__form {
     border-top: 1px solid rgba(0,0,0,.2);
-    border-bottom: 1px solid rgba(0,0,0,.2);
     height: 230px;
     background-color: #EFEFEF;
-
   }
 
   .main-review {

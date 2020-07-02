@@ -14,7 +14,7 @@
           %span.navbar__right__menu__name__icon
             %i.fas.fa-sort-down
         %ul.navbar__right__menu__list#list
-          %li= link_to "参考になった記事", "#", class: "nav-link__mypage__like" 
+          %li= link_to "参考になった記事", user_reference_path(current_user), class: "nav-link__mypage__like" 
           %li= link_to "投稿した記事", user_path(current_user), class: "nav-link__mypage__post"
           %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link__logout", data: { confirm: "ログアウトしますか？"}           
     - else

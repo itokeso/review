@@ -54,7 +54,7 @@
             });
           = @post.rate
         %span.show__wrapper__main__review__header__edit
-          - if current_user.id = @post.user.id
+          - if user_signed_in? && current_user.id == @post.user.id
             = link_to "[編集する]", edit_anime_post_path(@anime, @post), class: "show__wrapper__main__review__header__edit__post"
             = link_to "[削除する]", anime_post_path(@anime, @post), method: :delete, data: { confirm: '削除しますか？'}, class: "show__wrapper__main__review__header__destroy__post"
         .show__wrapper__main__review__header__text.mt-3
