@@ -25,6 +25,11 @@ class AnimesController < ApplicationController
     @all_ranks = Anime.find(Post.group(:anime_id).order('count(anime_id) desc').limit(5).pluck(:anime_id))
     @categories = Category.all
   end
+
+  def search
+    @anime = Anime.search(params[:search])
+  end
+
   private
   def anime_params
     params.require(:anime).permit(:title, :image, :genre, :detail)

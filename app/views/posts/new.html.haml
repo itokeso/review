@@ -21,7 +21,7 @@
               作品を選ぶ(タイトルを入力して下さい)
               %i.far.fa-window-close   
             .review__select__modal__content__search
-              = search_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__select__modal__content__search__field"
+              = text_field :title, placeholder:'タイトルを入力して下さい', class: "review__select__modal__content__search__field"
             .review__select__modal__content__title
               -@anime.each do |anime|
                 %label{ for:"label", class:"label__field", data:{id: anime.id, title: anime.title, genre: anime.category.name, image: anime.image.url}}

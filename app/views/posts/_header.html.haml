@@ -30,8 +30,8 @@
         %br/
         自分に合ったアニメを探そう！
     .header__right.mr-5
-      = text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"header__right__search"
-      .header__right__btn.btn.btn-dark.rounded-pill.ml-2.mb-1
-        検索
-      .header__right__text.mt-2
-        ＃ワンピース　　＃NARUTO　　＃BLEACH　　＃とらドラ
+      = form_with(url: anime_search_path, local: true, method: :get, class: "search__form") do |f|
+        = f.text_field :search, placeholder:'タイトルを入力して下さい', class:"header__right__search" ,required: true
+        = f.submit "検索", class: "header__right__btn"
+        .header__right__text.mt-2
+          ＃ワンピース　　＃NARUTO　　＃BLEACH　　＃とらドラ

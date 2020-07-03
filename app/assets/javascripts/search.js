@@ -64,7 +64,7 @@ $(function(){
     }
 
 // インクリメンタルサーチ
-  $('input[type="search"]').on('keyup', function(){
+  $('input[type="text"]').on('keyup', function(){
     var input = $(this).val();
     $.ajax({
       type: 'GET',
