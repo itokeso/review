@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :new_anime, :edit]
   
   def index
     @posts = Post.all.page(params[:page]).order(id: 'desc').per(5)
@@ -8,13 +8,19 @@ class PostsController < ApplicationController
     @categories = Category.all
   end
 
-  def new
+  def new_anime
     @post = Post.new
     @anime = Anime.all
   end
 
+
+  def new
+    @post = Post.new
+    @anime = Anime.find(params[:anime_id])
+  end
+
   def create
-    @amime = Anime.find_by(id: params[:anime_id])
+    @anime = Anime.find_by(id: params[:anime_id])
     @post = Post.new(post_params)
     if @post.save
       redirect_to root_path

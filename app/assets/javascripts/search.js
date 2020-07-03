@@ -26,7 +26,7 @@ $(function(){
                     <div class="review__form__anime">
                       <img class="review__form__anime__left" style="background-image: url(${image})">
                         <div class="review__form__anime__right">
-                          <a href= "/posts/new/" class = "review__form__anime__right__change">変更する</a>                
+                          <a href= "/posts/new_anime/" class = "review__form__anime__right__change">変更する</a>                
                           <div class="review__form__anime__right__title">
                             ${title}
                           </div>
@@ -50,7 +50,7 @@ $(function(){
                     <div class="review__form__anime">
                       <img class="review__form__anime__left" style="background-image: url(${image})">
                         <div class="review__form__anime__right">  
-                          <a href= "/posts/new/" class = "review__form__anime__right__change">変更する</a>                
+                          <a href= "/posts/new_anime/" class = "review__form__anime__right__change">変更する</a>                
                           <div class="review__form__anime__right__title">
                             ${title}
                           </div>

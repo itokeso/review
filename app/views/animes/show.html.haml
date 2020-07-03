@@ -32,8 +32,9 @@
       .anime__show__main__detail.mt-3
         = @anime.detail
     .anime__show__main__review.my-3
-      .anime__show__main__review__text.my-3
+      .anime__show__main__review__text.my-3.px-3
         = "#{@anime.title}の感想"
+        = link_to "[感想を投稿する]", new_anime_post_path(@anime), class: "anime__show__main__review__link"
       - @post.each do |post|
         = link_to(anime_post_path(post.anime, post))do
           .anime__show__main__review__block

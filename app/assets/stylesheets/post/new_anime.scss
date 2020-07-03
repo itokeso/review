@@ -1,0 +1,201 @@
+.review{
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  background-color: #FEEABC;
+  &-wrapper {
+    width: 800px;
+    border: 1px solid gray ;
+    margin: 0 auto;
+    background-color: white;
+    padding: 10px;
+    &__post {
+      opacity: 0.8;
+    }
+    &__text {
+      font-size: 15px;
+      }
+
+    // モーダルウィンドウ 
+      .review__select {
+        width: 100%;
+        text-align: center;
+        border-style: dashed;
+        border-color: #c5c0b3;
+        padding: 18px 18px;
+        background-color: #f5f0e3;
+        height: 60px;
+        transition: all 0.3s;
+        margin-top: 20px;
+        &__modal {
+          display:  none;
+          height: 120%;
+          width: 100%;
+          position: fixed;
+          top: 0px;
+          left: 0px;
+          background: rgba(0,0,0,0.8);
+          &__content {
+            background-color: #FEEABC;
+            left: 50%;
+            padding: 10px;
+            position: absolute;
+            top:  50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: calc(100vh - 20px);
+            overflow: scroll;
+            .review__select__modal__close {
+              font-size: 18px;
+              opacity: 0.8;
+              .far.fa-window-close {
+                position: absolute;
+                font-size: 30px;
+                right: 10px;
+                top: 5px;
+                opacity: 0.6;
+                cursor: pointer;
+                &:hover {
+                  opacity: 0.3;
+                }
+              }
+            }
+            &__search {
+              margin: 0 auto; 
+              margin-bottom: 20px;                  
+                input[type= "text"] {
+                  width: 450px;
+                  border-radius: 10px;
+                  outline: none;
+              }           
+            }  
+          
+            &__title {
+              height: 150px;
+              width: 558px;
+              background-color: #f5f0e3; 
+              border: 1px solid rgba(0,0,0,0.2);
+              position: relative;
+              margin: 0 auto;
+              &:hover {
+                border: 1px solid rgba(0,0,0,0.6);
+              }
+              &__left {
+                width: 100px;
+                height: 130px;
+                background-color: gray;
+                border: 1px solid rgba(0,0,0,0.8);
+                float: left;
+                margin: 10px;        
+              }
+            
+              .anime__image {
+                color: white;
+                width: 100px;
+                height: 130px;
+                position: absolute;
+                background-size: 100% 100%;
+                top: 10px;
+                left: 10px;
+            
+              }
+              &__right {
+                position: relative;
+                &__title {
+                  position: absolute;
+                  top: 20px;
+                  left: 130px;
+                  font-weight: bold;
+                }
+                &__genre {
+                  position: absolute;
+                  top: 70px;
+                  left: 130px;
+                  font-size: 15px;     
+                } 
+            }                
+          }
+        }        
+      }
+    }
+    // 評価フォーム
+      .review__form {
+        display: none;
+      &__anime {
+        position: relative;
+        background-color:#f5f0e3 ;
+        border: 1px solid gray ;
+        padding: 5px;
+      &__left {
+        width: 120px;
+        height: 150px;
+        background-size: 100% 100%;
+      }
+        &__right__title {
+          position: absolute;
+          top: 20px;
+          left: 150px;
+          font-size: 25px;
+        } 
+        &__right__change {
+          position: absolute;
+          font-size: 14px;
+          top: 10px;
+          right: 10px;
+        } 
+        &__right__genre {
+          position: absolute;
+          top: 75px;
+          left: 148px;
+          font-size: 20px;
+        }
+      } 
+      &__evalution {
+        font-size: 15px;
+        margin: 10px 10px 10px 0;
+        border: 1px solid rgba(0,0,0,0.1);
+        &__star__label {
+          margin-right: 10px;
+          margin-top: 5px;
+        }
+      }
+      &__title {
+        input[type="text"] {
+          width: 775px;
+          height: 35px;
+          border-radius: 5px;
+          margin-bottom: 30px;
+          outline: none;
+        } 
+      }
+      &__field {
+        outline: none;
+      }
+      &__title__count {
+        font-size: 12px;
+      }
+      &__title__submit {
+        text-align: center;
+        .post-submit {
+          width: 200px;
+          line-height: 38px;
+          font-size: 1rem;
+          font-weight: bold;
+          font-family: 'Noto Sans JP', sans-serif;
+          border: 1px solid #383838;
+          border-bottom: solid 4px #627295;
+          border-radius: 5px;
+          background-color: #383838;
+          color: #fff;
+          margin: 30px 0;
+          margin: 0 auto;
+        &:active {
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+          border-bottom: none;
+          }
+        }
+      } 
+    }
+  }
+}

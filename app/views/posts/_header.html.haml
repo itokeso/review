@@ -7,7 +7,7 @@
 
   .navbar__right.d-flex
     - if user_signed_in? 
-      = link_to "感想を投稿する" , posts_new_path, class:"nav-link__review"
+      = link_to "感想を投稿する" , posts_new_anime_path, class:"nav-link__review"
       .navbar__right__menu#mypage  
         .navbar__right__menu__name
           = current_user.name 
@@ -34,4 +34,4 @@
         = f.text_field :search, placeholder:'タイトルを入力して下さい', class:"header__right__search" ,required: true
         = f.submit "検索", class: "header__right__btn"
         .header__right__text.mt-2
-          ＃ワンピース　　＃NARUTO　　＃BLEACH　　＃とらドラ
+          ＃ワンピース   ＃NARUTO   ＃BLEACH  ＃とらドラ

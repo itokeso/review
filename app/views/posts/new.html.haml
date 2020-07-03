@@ -1,53 +1,28 @@
-.review
-  .review-wrapper
-    .review__post.mb-3
-      感想を投稿する
-    .review__text.mb-3
-      アニレビュは、作品についての理解を深めることをコンセプトとしたレビューサイトです。
-      %br/
-      作品についての新たな発見や見解、独自の解釈にある長文レビューを大歓迎しています。
-      %br/
-      そのため、200文字未満の感想は作品ページに表示されませんのでご了承ください。
-      %br/
-      感想を書くときは、作品への愛と作者への敬意を忘れず、必ず自分で観てから感想を書いて下さい。
-      .review__select
-        %i.fas.fa-search
-        = link_to '作品を選ぶ', "#", class:"review__select__btn" 
-
-        -# モーダルウインドウ内部
-        .review__select__modal
-          .review__select__modal__content
-            .review__select__modal__close
-              作品を選ぶ(タイトルを入力して下さい)
-              %i.far.fa-window-close   
-            .review__select__modal__content__search
-              = text_field :title, placeholder:'タイトルを入力して下さい', class: "review__select__modal__content__search__field"
-            .review__select__modal__content__title
-              -@anime.each do |anime|
-                %label{ for:"label", class:"label__field", data:{id: anime.id, title: anime.title, genre: anime.category.name, image: anime.image.url}}
-                  .review__select__modal__content__title
-                    %img.review__select__modal__content__title__left
-                      = image_tag anime.image_url, class:"anime__image"
-                      .review__select__modal__content__title__right
-                        .review__select__modal__content__title__right__title
-                          = anime.title 
-                        .review__select__modal__content__title__right__genre
-                          = anime.category.name
-        
-    = form_for [@post], url: anime_posts_path(@anime) do |f|
-      -# jsでフォームを追加、form_forのなかにanimeidを入れる（jsで）
-      .review__form__evalution     
-        %span.review__form__evalution__star#star
-          = f.label :rate, '総合評価:', class: "review__form__evalution__star__label"
-          = f.hidden_field :rate, id: :review_star
-      .form-group.review__form__title
-        = f.text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__form__title"
-        .review__form__title__field
-          = f.text_area :review , autofocus: true, placeholder: '感想を入力して下さい', class:"review__form__field",id:"new__review", rows:"13", cols:"94"
-        .review__form__title__count#new__count.mb-4
-          0文字
-        .review__form__title__submit
-          = f.submit "投稿する", class:"post-submit"
+.posts__new.p-3.my-3
+  .posts__new__text
+    感想を投稿する
+  .posts__new__block
+    %span.posts__new__block__left
+      = image_tag @anime.image.url
+    .posts__new__block__right
+      .posts__new__block__right__title.mt-3
+        = @anime.title
+      .posts__new__block__right__genre.mt-3
+        = "ジャンル: #{@anime.category.name}"
+  = form_for [@post], url: anime_posts_path(@anime) do |f|
+    .posts__new__block__form
+      .posts__new__block__form__rate.mt-3.p-1#star
+        = f.label :rate, '総合評価:', class: "posts__new__block__form__rate__label"
+        = f.hidden_field :rate, id: :new__star
+        = f.hidden_field :anime_id, value: @anime.id
+      .posts__new__block__form__title
+        = f.text_field :title, autofocus: true, class: "posts__new__block__form__title__field"
+      .posts__new__block__form__review
+        = f.text_area :review, autofocus: true, class: "posts__new__block__form__review__field",rows: "13", cols: "85"
+      .posts__new__block__form__count#new__count
+        0文字
+      .posts__new__block__form__submit
+        = f.submit "投稿する", class: "posts__new__block__form__submit__btn"
 
 :javascript
   $('#star').raty({

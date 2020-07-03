@@ -24,6 +24,12 @@
       border-top: 1px solid rgba(0,0,0, .1);
       &__text {
         opacity: 0.8;
+        display: flex;
+        justify-content: space-between;
+      }
+      &__link {
+        font-size: 15px;
+
       }
       &__block {
         margin: 0 auto;

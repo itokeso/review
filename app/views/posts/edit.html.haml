@@ -10,7 +10,7 @@
       .user__edit__block__right__genre.mt-3
         = "ジャンル: #{@post.anime.category.name}"
   
-  = form_for [@post], url: anime_post_path(@anime, @post) do |f|
+  = form_for [@post], url: anime_post_path(@anime) do |f|
     .user__edit__form
       .user__edit__form__rate.mt-3.p-1#star
         = f.label :rate, '総合評価:', class: "user__edit__form__rate__label"

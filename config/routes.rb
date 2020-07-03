@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "posts#index"
   get "categories/:id/show" => "categories#show", as: :categories_show
-  get "posts/new" => "posts#new"
+  get "posts/new_anime" => "posts#new_anime"
   post "posts/:post_id/favorites/" => "favorites#create", as: :post_favorites
   delete "posts/:post_id/favorites" => "favorites#destroy"
   get "users/:user_id/reference" => "users#reference", as: :user_reference
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
     resources :users, only:  [:show]
     resources :animes, only: [ :index, :new, :create, :show ] do 
-      resources :posts, only: [:create, :index, :show, :edit, :update, :destroy] do
+      resources :posts, only: [ :new, :create, :index, :show, :edit, :update, :destroy] do
       resources :posts, only: [:search] 
         collection do
         get 'search'
