@@ -64,14 +64,16 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-next {
     position: absolute;
     display: block;
-    height: 20px;
-    width: 20px;
+    height: 70px;
+    width: 50px;
     line-height: 0px;
     font-size: 0px;
+    opacity: .5;
     cursor: pointer;
-    background: transparent;
+    background: rgba(0,0,0,.6);
     color: transparent;
     top: 50%;
+    border-radius: 5px;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -80,8 +82,7 @@ $slick-opacity-not-active: 0.25 !default;
     outline: none;
     &:hover, &:focus {
         outline: none;
-        background: transparent;
-        color: transparent;
+        background: rgba(0,0,0,.8);
         &:before {
             opacity: $slick-opacity-on-hover;
         }
@@ -93,7 +94,7 @@ $slick-opacity-not-active: 0.25 !default;
         font-family: $slick-font-family;
         font-size: 50px;
         line-height: 1;
-        color: gray;
+        color: white;
         opacity: $slick-opacity-default;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -115,7 +116,7 @@ $slick-opacity-not-active: 0.25 !default;
 }
 
 .slick-next {
-    right: -25px;
+    right: -55px;
     [dir="rtl"] & {
         left: -25px;
         right: auto;
