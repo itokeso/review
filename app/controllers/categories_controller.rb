@@ -7,6 +7,6 @@ class CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, animes_attributes: [:title, :image, :detail, published_at])
   end
 end

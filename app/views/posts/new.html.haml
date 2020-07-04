@@ -18,18 +18,10 @@
       .posts__new__block__form__title
         = f.text_field :title, autofocus: true, class: "posts__new__block__form__title__field"
       .posts__new__block__form__review
-        = f.text_area :review, autofocus: true, class: "posts__new__block__form__review__field",rows: "13", cols: "85"
-      .posts__new__block__form__count#new__count
+        = f.text_area :review, autofocus: true, class: "posts__new__block__form__review__field",id: "new__anime__review",rows: "13", cols: "85"
+      .posts__new__block__form__count#new__anime__count
         0文字
       .posts__new__block__form__submit
         = f.submit "投稿する", class: "posts__new__block__form__submit__btn"
 
-:javascript
-  $('#star').raty({
-    size     : 36,
-    starOff:  '#{asset_path('star-off.png')}',
-    starOn : '#{asset_path('star-on.png')}',
-    starHalf: '#{asset_path('star-half.png')}',
-    scoreName: 'post[rate]',
-    half: true,
-  });
+= render partial: "rate"

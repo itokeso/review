@@ -6,7 +6,9 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :review, presence: true
   validates :rate, presence: true
-
+  validates :user_id, presence: true
+  validates :anime_id, presence: true
+  
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

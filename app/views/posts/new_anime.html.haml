@@ -41,20 +41,12 @@
           = f.label :rate, '総合評価:', class: "review__form__evalution__star__label"
           = f.hidden_field :rate, id: :review_star
       .form-group.review__form__title
-        = f.text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__form__title"
+        = f.text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"review__form__title", required: true
         .review__form__title__field
-          = f.text_area :review , autofocus: true, placeholder: '感想を入力して下さい', class:"review__form__field",id:"new__review", rows:"13", cols:"94"
+          = f.text_area :review , autofocus: true, placeholder: '感想を入力して下さい', class:"review__form__field",id:"new__review", rows:"13", cols:"94", required: true
         .review__form__title__count#new__count.mb-4
           0文字
         .review__form__title__submit
           = f.submit "投稿する", class:"post-submit"
 
-:javascript
-  $('#star').raty({
-    size     : 36,
-    starOff:  '#{asset_path('star-off.png')}',
-    starOn : '#{asset_path('star-on.png')}',
-    starHalf: '#{asset_path('star-half.png')}',
-    scoreName: 'post[rate]',
-    half: true,
-  });
+= render partial: "rate"

@@ -4,6 +4,13 @@
   .anime__form.my-4
     = form_for @anime do |f|
       .anime__form__field
+        = f.label :ジャンル, class:"genre__label"
+        %span.genre__label__tag
+          必須
+        %br/  
+        = f.collection_select(:category_id, @categories, :id, :name, class:"genre__field", :prompt => "選択して下さい")
+        %br/
+      .anime__form__field
         = f.label :作品画像, class:"image__label"
         %span.image__label__tag
           必須
@@ -16,14 +23,13 @@
           必須
         %br/
         = f.text_field :title, autofocus: true, class:"title__field", placeholder: "アニメタイトルを入力して下さい"
-  
       .anime__form__field
-        = f.label :ジャンル, class:"genre__label"
-        %span.genre__label__tag
+        = f.label :あらすじ, class:"detail__label"
+        %span.detail__label__tag
           必須
         %br/
-        -# = f.select :category, ["バトル","恋愛","学園","SF","ロボット","スポーツ"], class:"genre__field", :prompt => "選択して下さい"
-        -# %br/
+        = f.text_area :detail, autofocus: true, class: "detail__field", placeholder: "アニメのあらすじを入力してください", rows: "10", cols: "60"
+      
       .anime__form__submit
         = f.submit "新規アニメ登録", class:"anime__submit"
   

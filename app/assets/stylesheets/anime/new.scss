@@ -2,7 +2,6 @@
   height: 100vh;
   width: 100%;
   // background-color: #f5f0e3;
-
   &__text {
     text-align: center;
     font-size: 20px;
@@ -13,7 +12,15 @@
     width: 800px;
     margin: 0 auto;
     position: relative;
-
+    &__field {
+      text-align: center;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      padding-bottom: 10px;
+      & select {
+        width: 400px;
+        height: 30px;
+      }
+    }
     .image__label {
       font-size: 18px;
       margin-top: 30px;
@@ -22,8 +29,8 @@
     }
     .image__label__tag {
       position: absolute;
-      top: 35px;
-      right: 310px;
+      top: 25px;
+      right: 320px;
       color: #fff;
       border-radius: 2rem;
       background-color: #f4ac6c;
@@ -38,15 +45,15 @@
 
     }
     .title__label {
-      margin-top:50px;
+      margin-top:20px;
       text-align: center;
       display: block;
       font-size: 18px;
     }
     .title__label__tag {
       position: absolute;
-      top: 152px;
-      right: 290px;
+      top: 156px;
+      right: 318px;
       color: #fff;
       border-radius: 2rem;
       background-color: #f4ac6c;
@@ -61,16 +68,39 @@
       outline: none;
       border-radius: 10px;
     }
+    .detail__field {
+      margin: 0 auto;
+      margin-top: -20px;
+      display: block;
+      width: 500px;
+      outline: none;
+      border-radius: 10px;
+    }
+    .detail__label {
+      text-align: center;
+      display: block;
+      margin: 10px 0;
+    }
+    .detail__label__tag {
+      position: absolute;
+      top: 254px;
+      right: 295px;
+      color: #fff;
+      border-radius: 2rem;
+      background-color: #f4ac6c;
+      line-height: 16px;
+      padding: 0 5px;
+    }
     .genre__label {
-      margin-top:50px;
+      margin-top:20px;
       text-align: center;
       display: block;
       font-size: 18px;
     }
     .genre__label__tag {
       position: absolute;
-      top: 272px;
-      right: 315px;
+      top: 343px;
+      right: 326px;
       color: #fff;
       border-radius: 2rem;
       background-color: #f4ac6c;

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "animes/search" => "animes#search", as: :anime_search
   
     resources :users, only:  [:show]
-    resources :animes, only: [ :index, :new, :create, :show ] do 
+    resources :animes, only: [ :index, :show, :new, :create] do 
       resources :posts, only: [ :new, :create, :index, :show, :edit, :update, :destroy] do
       resources :posts, only: [:search] 
         collection do

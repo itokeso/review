@@ -1,9 +1,10 @@
 class Anime < ApplicationRecord
-  has_many :posts
+  has_many :posts, dependent: :destroy
   belongs_to :category
   validates :title, presence: true
   validates :image, presence: true
-
+  validates :detail, presence: true
+  validates :category_id, presence: true
   mount_uploader :image, ImageUploader
 
   # ヘッダー検索

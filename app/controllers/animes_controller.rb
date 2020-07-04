@@ -8,6 +8,7 @@ class AnimesController < ApplicationController
 
   def new
     @anime = Anime.new
+    @categories = Category.all
   end
 
   def create
@@ -32,7 +33,7 @@ class AnimesController < ApplicationController
 
   private
   def anime_params
-    params.require(:anime).permit(:title, :image, :genre, :detail)
+    params.require(:anime).permit(:title, :image, :genre, :detail,:category_id)
   end
 end
 
