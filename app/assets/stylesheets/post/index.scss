@@ -4,11 +4,21 @@
   outline: none;
 }
 
+body {
+  background-color: #FEEABC;
+  height: 100%;
+  margin: 0;
+}
+
 // スライド
 .slick {
-  height: 230px;
-  width: 100%;
-  background-color: beige;
+  height: 215px;
+  width: 800px;
+  background-color: white;
+  margin: 0 auto;
+  &-next {
+    color: gray;
+  }
   &__text {
     font-size: 16px;
   
@@ -80,31 +90,30 @@
 
 // レビュー
 .main {
-  display: flex;
-  justify-content: space-around;
   margin: 0 70px;
 .main__left {
   border: 1px solid gray;
   width: 800px;
-  margin: 0 auto;
   &__text {
-    margin: 15px 0;
+    background-color: white;
+    text-align: center;
   }
   &__form {
     border-top: 1px solid rgba(0,0,0,.2);
-    border-bottom: 1px solid rgba(0,0,0,.2);
     height: 230px;
+    background-color: #EFEFEF;
   }
 
   .main-review {
     position: relative;
   }
   .anime__image {
-    float: left;
+    position: absolute;
+    left: 35px;
     height: 140px;
     width: 100px;
     margin: 20px;
-    background-color: gray;
+    border: 1px solid rgba(0,0,0,.2);
     &:hover {
     opacity: 0.8;
     transition: 0.3s;
@@ -113,17 +122,19 @@
   .main-review__anime {
     position: absolute;
     top: 165px;
-    left: 18px;
+    left: 60px;
     font-size: 13px;
+    width: 100px;
   }
 
   .show {
     text-decoration: none;
   }
 &__block {
-  width: 610px;
+  width: 580px;
   height: 200px;
-  background-color: beige;
+  border: 1px solid rgba(0,0,0,.3);
+  background-color: #EFEFEF;
   float: right;
   padding: 10px;
   margin-bottom: 5px;
@@ -178,11 +189,16 @@
 }
 
 .main__right {
+  background-color: white;
+  height: 926px;
+  position: absolute;
+  top: 390px;
+  right: 180px;
   &__box {
     border: 1px solid rgba(0,0,0,.2);
     &__list {
       margin-top: 10px;
-      background-color: beige;
+      background-color: #FFF4E0;
       &:hover {
         opacity: 0.8;
         transition: 0.3s;
@@ -194,6 +210,7 @@
           position: absolute;
           top: 45px;
           left: -25px;
+          color: black;
         }
         &__image img {
           height: 80px;
@@ -232,8 +249,8 @@
   &__text {
     opacity: 0.8;
   }
-  &__category {
-    .battle {
+  &__category a {
+    &:nth-child(1) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 25px;
@@ -247,7 +264,7 @@
         transition: .3s;
       }
     }
-    .love {
+    &:nth-child(2) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 30px ;
@@ -262,7 +279,7 @@
       }
 
     }
-    .school {
+    &:nth-child(3) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2); 
       padding: 5px 33px;
@@ -277,7 +294,7 @@
       }
 
     }
-    .sf {
+    &:nth-child(4) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 37px;
@@ -292,7 +309,7 @@
       }
 
     }
-    .robot {
+    &:nth-child(5) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 17px;
@@ -307,7 +324,7 @@
       }
       
     }
-    .fantasy {
+    &:nth-child(6) {
       border-radius: 10px;
       border: 1px solid rgba(0,0,0,.2);
       padding: 5px 15px;
@@ -325,6 +342,36 @@
 }
 }
 
-.pagination {
+// ページネーション
+.pagination span{
   font-size: 20px;
-}  
+  background-color: white;
+  border: 1px solid #e9e7e1;
+  padding: 5px;
+  color: #bbb;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 5px;
+} 
+
+.page {
+  margin-left: 5px;
+}
+.pagegap {
+  margin-left: 5px;
+}
+.next {
+  margin-left: 5px;
+}
+.last {
+  margin-left: 5px;
+}
+.first {
+  margin-right: 5px;
+}
+.pagenate {
+  background-color: white;
+  padding: 10px 0;
+  & a {
+    color: black;
+  }
+}

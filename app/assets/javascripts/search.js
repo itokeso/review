@@ -26,7 +26,7 @@ $(function(){
                     <div class="review__form__anime">
                       <img class="review__form__anime__left" style="background-image: url(${image})">
                         <div class="review__form__anime__right">
-                          <a href= "/posts/new/" class = "review__form__anime__right__change">変更する</a>                
+                          <a href= "/posts/new_anime/" class = "review__form__anime__right__change">変更する</a>                
                           <div class="review__form__anime__right__title">
                             ${title}
                           </div>
@@ -50,7 +50,7 @@ $(function(){
                     <div class="review__form__anime">
                       <img class="review__form__anime__left" style="background-image: url(${image})">
                         <div class="review__form__anime__right">  
-                          <a href= "/posts/new/" class = "review__form__anime__right__change">変更する</a>                
+                          <a href= "/posts/new_anime/" class = "review__form__anime__right__change">変更する</a>                
                           <div class="review__form__anime__right__title">
                             ${title}
                           </div>
@@ -64,7 +64,7 @@ $(function(){
     }
 
 // インクリメンタルサーチ
-  $('input[type="search"]').on('keyup', function(){
+  $('input[type="text"]').on('keyup', function(){
     var input = $(this).val();
     $.ajax({
       type: 'GET',
@@ -73,7 +73,7 @@ $(function(){
       dataType: 'json'
     })
     .done(function(anime) {
-    　$(".review__select__modal__content__title").empty();
+      $(".review__select__modal__content__title").empty();
     if (anime.length !== 0) {
         anime.forEach(function(anime){
         appendAnime(anime);    
@@ -84,7 +84,7 @@ $(function(){
     }  else {
         appendErrMsg("一致するアニメはありません。");
     }
-　　　 }) 
+  }) 
     .fail(function(){
       alert('通信エラーです')
     });
@@ -98,7 +98,7 @@ $(function(){
     $('.review__select__modal').fadeOut();
     $('.review__select').hide()
       addForm(title, id, genre, image)
-    　saveAnime(id)
+      saveAnime(id)
 
   });
 

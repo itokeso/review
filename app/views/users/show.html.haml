@@ -1,0 +1,13 @@
+.user__show
+  .user__show__review.my-3
+    投稿した感想
+    %span.user__show__review__count
+      = "(#{@all_posts.count}件)"
+
+-# index.html.hamlと同じクラスとcss
+= render partial: "posts/index"
+
+:css
+  .main__left {
+    margin: 0 auto;
+  }

@@ -2,56 +2,13 @@
   人気の作品
   -@anime.each do |anime|
     .slick__block
-      = link_to('#', class: "slick__link") do
+      = link_to(anime_path(anime), class: "slick__link") do
         .slick__image.my-4
           = image_tag anime.image.url
           .slick__image__tag
-            = anime.genre
+            = anime.category.name
           .slick__image__title.my-1
             = anime.title
-
-.main.py-3.px-3
-  .main__left
-    .main__left__text
-      アニメを観た作品の新着感想
-      -@posts.each do |post|
-        .main__left__form
-          = link_to("#", class: "image") do
-            .main-review.mt-3
-              = image_tag post.anime.image.url, class:"anime__image"
-              .main-review__anime
-                = post.anime.title
-
-          = link_to(anime_post_path(post.anime, post), class: "show") do
-            .main__left__block
-              .main-review__title
-                = post.title
-              .main-review__text
-                = post.review.truncate(175)
-              -if post.review.length >= 175
-                = link_to '>>続きを読む', anime_post_path(post.anime, post), class:'main-review__text__link'
-              .main__left__block__name
-                = post.user.name
-                %span.main__left__block__name__time
-                  = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
-
-                %span.main-review__rate
-                  評価:  
-                  %span{:id => "star-rate-#{post.id}"}
-                  :javascript
-                    $('#star-rate-#{post.id}').raty({
-                      size: 36,
-                      starOff:  '#{asset_path('star-off.png')}',
-                      starOn : '#{asset_path('star-on.png')}',
-                      starHalf: '#{asset_path('star-half.png')}',
-                      half: true,
-                      readOnly: true,
-                      score: #{post.rate}
-                    });
-                = post.rate
-                %span.main__left__block__name__length
-                  = post.review.length.to_s + "文字"
-    .pagenate              
-      = paginate @posts  
-
+= render partial: "index"
+.main
   = render partial: "right"

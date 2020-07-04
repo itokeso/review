@@ -1,0 +1,36 @@
+.user__edit.p-3.my-3 
+  .user__edit__text.my-3
+    感想を編集する
+  .user__edit__block 
+    %span.user__edit__block__left
+      = image_tag @post.anime.image_url
+    .user__edit__block__right
+      .user__edit__block__right__title.mt-3      
+        = @post.anime.title
+      .user__edit__block__right__genre.mt-3
+        = "ジャンル: #{@post.anime.category.name}"
+  
+  = form_for [@post], url: anime_post_path(@anime) do |f|
+    .user__edit__form
+      .user__edit__form__rate.mt-3.p-1#star
+        = f.label :rate, '総合評価:', class: "user__edit__form__rate__label"
+        = f.hidden_field :rate, id: :edit__star
+      .user__edit__form__title
+        = f.text_field :title, autofocus: true, class: "user__edit__form__title__field"
+      .user__edit__form__review
+        = f.text_area :review, autofocus: true, class: "user__edit__form__review__field", id: "edit__review", rows:"11", cols:"84"
+      .user__edit__form__count#edit__count
+        0文字
+      .user__edit__form__submit
+        = f.submit "投稿する", class: "user__edit__form__submit__btn"
+
+:javascript
+  $('#star').raty({
+    size     : 36,
+    starOff:  '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    scoreName: 'post[rate]',
+    half: true,
+    score: #{@post.rate}  
+  });

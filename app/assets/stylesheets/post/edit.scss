@@ -1,0 +1,81 @@
+*{
+  box-sizing: border-box;
+}
+
+.user__edit {
+  height: 105vh;
+  width: 730px;
+  background-color: white;
+  margin: 0 auto;
+  &__text {
+    font-size: 20px;
+    text-align: center;
+  }
+  &__block {
+    background-color:#f5f0e3 ;
+    border: 1px solid gray ;
+    padding: 5px;
+    width: 700px;
+    height: 170px;
+    margin: 0 auto;
+    &__left img {
+      width: 120px;
+      height: 150px;
+      margin-top: 3px;
+    }
+    &__right {
+      width: 530px;
+      height: 160px;
+      float: right;
+      &__title {
+        font-size: 25px;
+      }
+      &__genre {
+        font-size: 20px;
+      }
+    }
+  }
+  &__form {
+    &__rate {
+      font-size: 15px;
+      border: 1px solid rgba(0,0,0,.1);
+  
+    }
+    &__title {
+      input[type="text"] {
+        width: 700px;
+        height: 35px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        outline: none;
+        margin-top: 20px;
+      } 
+    }
+    &__count {
+      font-size: 12px;
+    }
+    &__submit {
+      text-align: center;
+      &__btn {
+        width: 200px;
+          line-height: 38px;
+          font-size: 1rem;
+          font-weight: bold;
+          font-family: 'Noto Sans JP', sans-serif;
+          border: 1px solid #383838;
+          border-bottom: solid 4px #627295;
+          border-radius: 5px;
+          background-color: #383838;
+          color: #fff;
+          margin: 30px 0;
+          margin: 0 auto;
+        
+        &:active {
+          -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+          border-bottom: none;
+          } 
+        }
+      }
+    }
+  }

@@ -1,0 +1,35 @@
+.anime__search.my-3 
+  .anime__search__main
+    .anime__search__main__text.my-3
+      検索結果 
+      - if @anime.exists?
+        - @anime.each do |anime|
+          = link_to(anime_path(anime), class: "anime__search__main__link")do
+            .anime__search__content
+              .anime__search__content__left 
+                = image_tag anime.image.url, class: "anime__search__content__left__image"
+                .anime__search__content__right
+                  .anime__search__content__right__title.mb-2
+                    = anime.title
+                  %span.anime__search__content__right__rate
+                  評価:  
+                  %span{:id => "rate-#{anime.id}"}
+                  :javascript
+                    $('#rate-#{anime.id}').raty({
+                      size: 36,
+                      starOff:  '#{asset_path('star-off.png')}',
+                      starOn : '#{asset_path('star-on.png')}',
+                      starHalf: '#{asset_path('star-half.png')}',
+                      half: true,
+                      readOnly: true,
+                      score: #{anime.posts.average(:rate).to_f.round(1)}  
+                    });
+                  = anime.posts.average(:rate).to_f.round(1)
+                  .anime__search__content__right__title__count.my-2
+                    口コミ
+                    = "#{anime.posts.count}" + "件"
+                  .category__wrapper__main__block__righ__category.pb-3
+                    = "ジャンル:#{anime.category.name}"
+      - else
+        .anime__search__else
+          一致するアニメはありませんでした。

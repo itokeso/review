@@ -1,24 +1,25 @@
 .wrapper
   .navbar.navbar-expand-lg.navbar-dark.bg-dark
-    %li.nav-item__battle
-      バトル
-    %li.nav-item__love
-      恋愛
-    %li.nav-item__school
-      学園
-    %li.nav-item__sf
-      SF
-    %li.nav-item__robot
-      ロボット
-    %li.nav-item__fantasy
-      スポーツ
-    .navbar__right.d-flex
-      -if user_signed_in? 
-        = link_to "感想を投稿する" , posts_new_path, class:"nav-link__review"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link__logout", data: { confirm: "ログアウトしますか？"}
-      -else
-        = link_to "ログイン", new_user_session_path, method: :get,  class:"nav-link__login"
-        = link_to "新規会員登録", new_user_registration_path, class:"nav-link__signup"      
+    - @categories.each do |category|
+      = link_to(categories_show_path(category))do
+        %li.navbar__category
+          = category.name
+
+  .navbar__right.d-flex
+    - if user_signed_in? 
+      = link_to "感想を投稿する" , posts_new_anime_path, class:"nav-link__review"
+      .navbar__right__menu#mypage  
+        .navbar__right__menu__name
+          = current_user.name 
+          %span.navbar__right__menu__name__icon
+            %i.fas.fa-sort-down
+        %ul.navbar__right__menu__list#list
+          %li= link_to "参考になった記事", user_reference_path(current_user), class: "nav-link__mypage__like" 
+          %li= link_to "投稿した記事", user_path(current_user), class: "nav-link__mypage__post"
+          %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link__logout", data: { confirm: "ログアウトしますか？"}           
+    - else
+      = link_to "ログイン", new_user_session_path, method: :get,  class:"nav-link__login"
+      = link_to "新規会員登録", new_user_registration_path, class:"nav-link__signup"      
 
   .header.d-flex.align-items-center.justify-content-around.shadow-sm
     .header__left.d-flex
@@ -29,8 +30,8 @@
         %br/
         自分に合ったアニメを探そう！
     .header__right.mr-5
-      = text_field :title ,autofocus: true, placeholder:'タイトルを入力して下さい', class:"header__right__search"
-      .header__right__btn.btn.btn-dark.rounded-pill.ml-2.mb-1
-        検索
-      .header__right__text.mt-2
-        ＃ワンピース　　＃NARUTO　　＃BLEACH　　＃とらドラ
+      = form_with(url: anime_search_path, local: true, method: :get, class: "search__form") do |f|
+        = f.text_field :search, placeholder:'タイトルを入力して下さい', class:"header__right__search" ,required: true
+        = f.submit "検索", class: "header__right__btn"
+        .header__right__text.mt-2
+          ＃ワンピース   ＃NARUTO   ＃BLEACH  ＃とらドラ

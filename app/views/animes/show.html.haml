@@ -1,4 +1,4 @@
-.anime__show
+.anime__show.mb-3
   -# posts/showと同じクラス
   .show__wrapper__main
     .show__wrapper__main__anime.mb-3
@@ -32,8 +32,9 @@
       .anime__show__main__detail.mt-3
         = @anime.detail
     .anime__show__main__review.my-3
-      .anime__show__main__review__text.my-3
+      .anime__show__main__review__text.my-3.px-3
         = "#{@anime.title}の感想"
+        = link_to "[感想を投稿する]", new_anime_post_path(@anime), class: "anime__show__main__review__link"
       - @post.each do |post|
         = link_to(anime_post_path(post.anime, post))do
           .anime__show__main__review__block
@@ -43,32 +44,32 @@
               = post.review.truncate(175)
             - if post.review.length >= 175
               = link_to '>>続きを読む', anime_post_path(post.anime, post), class: "anime__show__main__review__block__review__link"
-              .anime__show__main__review__block__name
-                = post.user.name
-                %span.anime__show__main__review__block__name__time.mx-3
-                  = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
-                %span.anime__show__main__review__block__name__rate.mx-1
-                  評価:
-                  %span{:id => "other-rate-#{post.id}"}
-                  :javascript
-                    $('#other-rate-#{post.id}').raty({
-                      size: 36,
-                      starOff:  '#{asset_path('star-off.png')}',
-                      starOn : '#{asset_path('star-on.png')}',
-                      starHalf: '#{asset_path('star-half.png')}',
-                      half: true,
-                      readOnly: true,
-                      score: #{post.rate}
-                    });
-                = post.rate
-                %span.anime__show__main__review__block__name__length
-                  = post.review.length.to_s + "文字"  
+            .anime__show__main__review__block__name
+              = post.user.name
+              %span.anime__show__main__review__block__name__time.mx-3
+                = post.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              %span.anime__show__main__review__block__name__rate.mx-1
+                評価:
+                %span{:id => "other-rate-#{post.id}"}
+                :javascript
+                  $('#other-rate-#{post.id}').raty({
+                    size: 36,
+                    starOff:  '#{asset_path('star-off.png')}',
+                    starOn : '#{asset_path('star-on.png')}',
+                    starHalf: '#{asset_path('star-half.png')}',
+                    half: true,
+                    readOnly: true,
+                    score: #{post.rate}
+                  });
+              = post.rate
+              %span.anime__show__main__review__block__name__length
+                = post.review.length.to_s + "文字"  
   .main.flex 
     = render partial: 'posts/right'   
   :css
     .main__right {
       position: absolute;
-      top: 332px;
+      top: 352px;
       right: 250px;
     }
     .show__wrapper__main__anime:hover {

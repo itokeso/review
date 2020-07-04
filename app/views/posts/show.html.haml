@@ -1,4 +1,4 @@
-.show__wrapper
+.show__wrapper.pt-2
   .show__wrapper__main
     = link_to(anime_path(@anime), class: "show__wrapper__main__link")do
       .show__wrapper__main__anime.mb-3
@@ -26,7 +26,7 @@
                 });
             = @anime.posts.average(:rate).to_f.round(1)
       
-    .show__wrapper__main__review
+    .show__wrapper__main__review.mb-3
       .show__wrapper__main__review__header.px-3.py-3
         %ul.show__wrapper__main__review__header__left
           %li.show__wrapper__main__review__header__left__name
@@ -39,7 +39,7 @@
             参考になった！
         .show__wrapper__main__review__header__title
           = @post.title
-        .show__wrapper__main__review__header__rate
+        %span.show__wrapper__main__review__header__rate
           評価：
           %span{:id => "personal-rate-#{@post.id}"}
           :javascript
@@ -53,6 +53,10 @@
               score: #{@post.rate}  
             });
           = @post.rate
+        %span.show__wrapper__main__review__header__edit
+          - if user_signed_in? && current_user.id == @post.user.id
+            = link_to "[編集する]", edit_anime_post_path(@anime, @post), class: "show__wrapper__main__review__header__edit__post"
+            = link_to "[削除する]", anime_post_path(@anime, @post), method: :delete, data: { confirm: '削除しますか？'}, class: "show__wrapper__main__review__header__destroy__post"
         .show__wrapper__main__review__header__text.mt-3
           = simple_format(@post.review)
 
@@ -66,7 +70,7 @@
           他のレビュアーの感想・評価     
           - @anime.posts.shuffle.first(3).each do |post|
             = link_to(anime_post_path(post.anime, post))do
-              .show__wrapper__main__review__other__block
+              .show__wrapper__main__review__other__block.my-3
                 .show__wrapper__main__review__other__block__title
                   = post.title
                 .show__wrapper__main__review__other__block__text
@@ -97,9 +101,4 @@
 
 .main.flex 
   = render partial: 'right'
-  :css
-    .main__right {
-      position: absolute;
-      top: 332px;
-      right: 250px;
-    }
+  
