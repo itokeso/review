@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_06_28_085247) do
 
   create_table "animes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
+    t.string "genre", null: false
     t.text "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,15 +33,6 @@ ActiveRecord::Schema.define(version: 2020_06_28_085247) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "anime_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["anime_id"], name: "index_genres_on_anime_id"
-    t.index ["category_id"], name: "index_genres_on_category_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -68,8 +60,6 @@ ActiveRecord::Schema.define(version: 2020_06_28_085247) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "genres", "animes"
-  add_foreign_key "genres", "categories"
   add_foreign_key "posts", "animes"
   add_foreign_key "posts", "users"
 end
