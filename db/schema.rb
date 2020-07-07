@@ -43,18 +43,6 @@ ActiveRecord::Schema.define(version: 2020_06_28_085247) do
     t.index ["category_id"], name: "index_genres_on_category_id"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", default: "", null: false
-    t.text "review", null: false
-    t.bigint "user_id"
-    t.bigint "anime_id"
-    t.float "rate", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["anime_id"], name: "index_posts_on_anime_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -70,6 +58,4 @@ ActiveRecord::Schema.define(version: 2020_06_28_085247) do
 
   add_foreign_key "genres", "animes"
   add_foreign_key "genres", "categories"
-  add_foreign_key "posts", "animes"
-  add_foreign_key "posts", "users"
 end
