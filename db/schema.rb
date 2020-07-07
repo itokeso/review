@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_06_28_085247) do
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "review", null: false
-    t.bigint "user_id", null: false
-    t.bigint "anime_id", null: false
+    t.bigint "user_id"
+    t.bigint "anime_id"
     t.float "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
