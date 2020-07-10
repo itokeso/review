@@ -5,6 +5,7 @@ class Anime < ApplicationRecord
   validates :image, presence: true
   validates :detail, presence: true
   validates :category_id, presence: true
+  validates_uniqueness_of :title
   mount_uploader :image, ImageUploader
 
   # ヘッダー検索
