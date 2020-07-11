@@ -76,6 +76,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'execjs'
 gem 'kaminari'
 gem 'fog-aws'
+gem 'capistrano-rails-console'
 group :production do
   gem 'unicorn', '5.4.1'
 end
