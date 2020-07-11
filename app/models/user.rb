@@ -9,3 +9,4 @@ class User < ApplicationRecord
   has_many :favorited_posts, through: :favorites, source: :post
 
 end
+

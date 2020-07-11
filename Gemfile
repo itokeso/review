@@ -75,6 +75,7 @@ gem 'haml-rails'
 gem 'bootstrap', '~> 4.1.1'
 gem 'execjs'
 gem 'kaminari'
+gem 'fog-aws'
 group :production do
   gem 'unicorn', '5.4.1'
 end
