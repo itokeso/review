@@ -22,7 +22,9 @@
 |本番環境| AWS, S3|
 
 # DEMO
-![demo](https://raw.github.com/wiki/itokeso/review/images/image.gif)
+![demo](https://raw.github.com/wiki/itokeso/review/gif/image.gif)
+
+![demo](https://raw.github.com/wiki/itokeso/review/gif/image2.gif)
 
 # DB設計
 
