@@ -3,7 +3,7 @@
     .main__left__text.py-2
       作品の感想
     -@posts.each do |post|
-      .main__left__form.jscroll
+      .main__left__form
         = link_to(anime_path(post.anime), class: "image") do
           .main-review.mt-3
             = image_tag post.anime.image.url, class:"anime__image"
