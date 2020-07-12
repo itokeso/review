@@ -1,8 +1,7 @@
 # 概要
 
 アニメの口コミや評価ができるアプリケーションです！<br>
-作品について深く考察して感想を投稿したり、他に人の解釈を読んで疑問を解決することで、<br>
-作品を存分に楽しむことができるようになっています！<br>
+作品について深く考察して感想を投稿したり、他に人の解釈を読んで疑問を解決することで、作品を存分に楽しむことができるようになっています！<br>
 
 ## アプリケーションの機能一覧
 ・ユーザー新規登録機能<br>
@@ -31,9 +30,9 @@
 |e-mail|string|null: false|
 |password|string|null: false|
 ### Association
-- has_many :posts
-- has_many :favorites
-- has_many :favorited_posts
+- has_many :posts<br>
+- has_many :favorites<br>
+- has_many :favorited_posts<br>
 
 ## animesテーブル
 |Column|Type|Options|
@@ -43,15 +42,15 @@
 |detail|text|null: false|
 |category_id|integer|null: false, foreign_key: true|
 ### Association
--has_many :posts
--belongs_to :category
+-has_many :posts<br>
+-belongs_to :category<br>
 
 ## categories
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
--has_many :animes
+-has_many :animes<br>
 
 ## posts
 |Column|Type|Options|
@@ -63,10 +62,10 @@
 |anime_id|integer|null: false, foreign_key: true|
 
 ### Association
--has_many :favorites
--has_many :favorited_users, through: :favorites
--belongs_to :user
--belongs_to :anime
+-has_many :favorites<br>
+-has_many :favorited_users, through: :favorites<br>
+-belongs_to :user<br>
+-belongs_to :anime<br>
 
 ## categories
 |Column|Type|Options|
@@ -75,8 +74,8 @@
 |post_id|integer|foreign_key: true|
 
 ### Association
--belongs_to :user
--belongs_to :post
+-belongs_to :user<br>
+-belongs_to :post<br>
 
 
 
