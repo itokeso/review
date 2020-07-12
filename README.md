@@ -21,6 +21,9 @@
 |データベース|MYSQL|
 |本番環境| AWS, S3|
 
+# DEMO
+![demo](https://raw.github.com/wiki/itokeso/review/images/image.gif)
+
 # DB設計
 
 ##  usersテーブル  
