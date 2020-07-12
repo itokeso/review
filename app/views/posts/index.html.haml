@@ -4,7 +4,7 @@
     .slick__block
       = link_to(anime_path(anime), class: "slick__link") do
         .slick__image.my-4
-          = image_tag anime.image.to_s
+          = image_tag asset_path(anime.image.url)
           .slick__image__tag
             = anime.category.name
           .slick__image__title.my-1
