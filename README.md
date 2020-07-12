@@ -26,6 +26,15 @@
 
 ![demo](https://raw.github.com/wiki/itokeso/review/gif/image4.gif)
 
+# 本番環境
+
+URL http://54.150.247.169/ <br>
+
+テスト用アカウント<br>
+▶︎メールアドレス: test@test<br>
+▶︎パスワード: 11111111<br>
+
+
 # DB設計
 
 ##  usersテーブル  
