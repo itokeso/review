@@ -89,7 +89,7 @@ URL http://54.150.247.169/ <br>
 -belongs_to :user<br>
 -belongs_to :anime<br>
 
-## categories
+## favorites
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|foreign_key: true|
