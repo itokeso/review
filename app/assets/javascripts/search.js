@@ -21,23 +21,23 @@ $(function(){
       search_list.css({'background-color':'white', 'border': 'none'}).append(html);
     }
 
-    function addForm(title, id, genre, image) {
-      let html = `<div class="review__form" style="display: block; id= ${id}">
-                    <div class="review__form__anime">
-                      <img class="review__form__anime__left" style="background-image: url(${image})">
-                        <div class="review__form__anime__right">
-                          <a href= "/posts/new_anime/" class = "review__form__anime__right__change">変更する</a>                
-                          <div class="review__form__anime__right__title">
-                            ${title}
-                          </div>
-                          <div class="review__form__anime__right__genre">
-                            ジャンル: ${genre}
-                          </div>
-                        </div>
-                    </div>
-                  </div>`
-          $('.review__text').empty().append(html)
-    }
+    // function addForm(title, id, genre, image) {
+    //   let html = `<div class="review__form" style="display: block; id= ${id}">
+    //                 <div class="review__form__anime">
+    //                   <img class="review__form__anime__left" style="background-image: url(${image})">
+    //                     <div class="review__form__anime__right">
+    //                       <a href= "/posts/new_anime/" class = "review__form__anime__right__change">変更する</a>                
+    //                       <div class="review__form__anime__right__title">
+    //                         ${title}
+    //                       </div>
+    //                       <div class="review__form__anime__right__genre">
+    //                         ジャンル: ${genre}
+    //                       </div>
+    //                     </div>
+    //                 </div>
+    //               </div>`
+    //       $('.review__text').empty().append(html)
+    // }
 
     // アニメIDをデータベースに保存する
     function saveAnime(animeId) {
@@ -90,17 +90,17 @@ $(function(){
     });
   });   
 
-  $('.label__field').on('click', function(){
-    const title = $(this).attr("data-title")
-    const id    = $(this).attr("data-id")
-    const genre = $(this).attr("data-genre")
-    const image = $(this).attr("data-image")
-    $('.review__select__modal').fadeOut();
-    $('.review__select').hide()
-      addForm(title, id, genre, image)
-      saveAnime(id)
+  // $('.label__field').on('click', function(){
+  //   const title = $(this).attr("data-title")
+  //   const id    = $(this).attr("data-id")
+  //   const genre = $(this).attr("data-genre")
+  //   const image = $(this).attr("data-image")
+  //   $('.review__select__modal').fadeOut();
+  //   $('.review__select').hide()
+  //     addForm(title, id, genre, image)
+  //     saveAnime(id)
 
-  });
+  // });
 
 
   // ラベルを押したらアニメが追加される

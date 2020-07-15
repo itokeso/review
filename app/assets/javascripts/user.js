@@ -1,3 +1,4 @@
+// フォームバリデーション
 $(function(){
   $('.content__name__field').on('blur', function(){
     if ($(this).val() == "") {
